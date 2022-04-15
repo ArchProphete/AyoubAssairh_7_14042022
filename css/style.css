@@ -1,25 +1,42 @@
-body {
-  padding: 30px;
-}
 body header {
   display: flex;
   justify-content: center;
 }
 body main {
   display: grid;
-}
-body main #search-filter, body main #tag-group, body main #selects-group, body main #recipes-group {
+  row-gap: 10px;
   padding: 40px;
 }
 body main #search-filter input {
   width: 100%;
   height: 5vw;
+  border: none;
+  background-color: #E7E7E7;
+  border-radius: 5px;
+  padding: 10px;
+}
+body main #search-filter input::placeholder {
+  color: #ADADAD;
+}
+body main #tag-group button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #3381F7;
+}
+body main #tag-group button::placeholder {
+  color: white;
+}
+body main #tag-group button:focus {
+  outline: none;
 }
 body main #selects-group input {
   border: none;
   border-radius: 5px;
   height: 5vw;
   padding: 34px;
+  max-width: 11rem;
+  margin-right: 1rem;
   color: white;
 }
 body main #selects-group input::placeholder {
@@ -43,28 +60,30 @@ body main #recipes-group {
   grid-gap: 50px;
   padding: 50px;
 }
-body main #recipes-group article div img {
+body main #recipes-group article > div img {
   width: 100%;
   object-fit: cover;
   height: 22vw;
 }
-body main #recipes-group article div div {
+body main #recipes-group article > div > div {
   display: grid;
   grid-template-areas: "title duration" "ingredients how-to";
   grid-gap: 20px;
   padding: 10px;
 }
-body main #recipes-group article div div h2 {
+body main #recipes-group article > div > div h1 {
   grid-area: title;
+  font-size: 16px;
 }
-body main #recipes-group article div div span {
+body main #recipes-group article > div > div span {
   grid-area: duration;
   text-align: right;
+  font-weight: bold;
 }
-body main #recipes-group article div div ul {
+body main #recipes-group article > div > div ul {
   grid-area: ingredients;
 }
-body main #recipes-group article div div p {
+body main #recipes-group article > div > div p {
   grid-area: how-to;
 }
 
