@@ -1,4 +1,8 @@
 body header {
+  margin-top: 25px;
+}
+body header a {
+  height: 100px;
   display: flex;
   justify-content: center;
 }

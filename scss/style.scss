@@ -2,8 +2,15 @@
 
 body {
     header {
-        display: flex;
-        justify-content: center;
+        margin-top: 25px;
+        a {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            img {
+
+            }
+        }
     }
     main {
         display: grid;
