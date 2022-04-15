@@ -1,0 +1,85 @@
+@import "variables";
+
+body {
+    padding: 30px;
+    header {
+        display: flex;
+        justify-content: center;
+    }
+    main {
+        display: grid;
+        #search-filter, #tag-group, #selects-group, #recipes-group {
+            padding: 40px;
+
+        }
+        #search-filter {
+            input {
+                width: 100%;
+                height: 5vw;
+            }
+        }
+        #tag-group {
+        }
+        #selects-group {
+            input {
+                border: none;
+                border-radius: 5px;
+                height: 5vw;
+                padding: 34px;
+                &::placeholder {
+                    color: white;
+                }
+                &:focus {
+                    outline: none;
+                }
+                color: white;
+                &:nth-child(1) {
+                    background-color: $primary-color;
+                }
+                &:nth-child(2) {
+                    background-color: $secondary-color;
+                }
+                &:nth-child(3) {
+                    background-color: $tertiary-color;
+                }
+            }
+        }
+        #recipes-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 50px;
+            padding: 50px;
+            article {
+                div {
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        height: 22vw;
+                    }
+                    div {
+                        display: grid;
+                        grid-template-areas:
+                                "title duration"
+                                "ingredients how-to"
+                        ;
+                        grid-gap: 20px;
+                        padding: 10px;
+                        h2 {
+                            grid-area: title;
+                        }
+                        span {
+                            grid-area: duration;
+                            text-align: right;
+                        }
+                        ul{
+                            grid-area: ingredients;
+                        }
+                        p {
+                            grid-area: how-to;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
