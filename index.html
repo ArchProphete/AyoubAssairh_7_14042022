@@ -3,85 +3,48 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/normalizer.css"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
     <title>Les petits plats</title>
 </head>
 
 <body>
-    <header>
+    <header id='header'>
+        <!--
         <a href='#'>
             <img src="assets/images/logo.png" class="logo" alt="Les petits plats" tabindex="1"/>
         </a>
+        -->
     </header>
 
-    <main>
-        <label id="search-filter" tabindex="2">
-            <input id="input" type='text' placeholder='Rechercher une recette'>
+    <main id='main'>
+        <!--
+        <label id='label-search-filter'>
+            <input id="search-filter" type='text' placeholder='Rechercher une recette' tabindex="2">
         </label>
 
-        <label id="tag-group" tabindex="3">
-            <button>Coco</button>
-            <button>Citron</button>
-            <button>lait</button>
+        <label id="label-tag-button" tabindex="3">
+            <button class="tag-button">Coco</button>
+            <button class="tag-button">Citron</button>
+            <button class="tag-button">lait</button>
         </label>
 
-        <label id="selects-group" tabindex="4">
+        <label id="label-selects-input" tabindex="4">
             <input name='ingredient' placeholder='Ingrédients'>
             <input name='apparel' placeholder='Appareils'>
             <input name='utensil' placeholder='Ustensiles'>
         </label>
 
-        <div id="recipes-group" tabindex="5">
+        <div id="label-recipes" tabindex="5">
             <article>
                 <div>
                     <img src='' alt=''>
                     <div>
                         <h1>Limonade de coco</h1>
-                        <span><i></i>10 min</span>
+                        <span>10 min</span>
                         <ul>
-                            <li>lat de coco</li>
-                            <li>Jus de citron</li>
-                            <li>Crème de coco</li>
-                        </ul>
-                        <p>
-                            Mettre les glaçons à votre gout dans le blender, ajouter le lait,
-                            la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistance
-                            désirée
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article>
-                <div>
-                    <img src='' alt=''>
-                    <div>
-                        <h1>Limonade de coco</h1>
-                        <span><i></i>10 min</span>
-                        <ul>
-                            <li>lat de coco</li>
-                            <li>Jus de citron</li>
-                            <li>Crème de coco</li>
-                        </ul>
-                        <p>
-                            Mettre les glaçons à votre gout dans le blender, ajouter le lait,
-                            la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistance
-                            désirée
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            <article>
-                <div>
-                    <img src='' alt=''>
-                    <div>
-                        <h1>Limonade de coco</h1>
-                        <span><i></i>10 min</span>
-                        <ul>
-                            <li>lat de coco</li>
-                            <li>Jus de citron</li>
-                            <li>Crème de coco</li>
+                            <li>lait de coco: 400ml</li>
+                            <li>Jus de citron: 2</li>
+                            <li>Crème de coco: 4 cuillères</li>
                         </ul>
                         <p>
                             Mettre les glaçons à votre gout dans le blender, ajouter le lait,
@@ -92,9 +55,10 @@
                 </div>
             </article>
         </div>
+        -->
     </main>
 
-    <script type="module" src="scripts/pages/index.js" defer></script>
+    <script type="module" src='index.js' defer></script>
 
     </body>
 </html>

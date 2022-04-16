@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/ArchProphete/Les_Petits_Plats_Ayoub_Assairh#readme",
   "devDependencies": {
-    "eslint": "^8.13.0",
+    "eslint": "8.13.0",
     "prettier": "2.6.2"
   }
 }
