@@ -1,3 +1,7 @@
+export const mainHtmlID = () => {
+    return document.getElementById('main');
+};
+
 /**
  * Set attribute and his content to an element
  * @param element

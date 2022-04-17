@@ -1,16 +1,16 @@
-import { createElementToCard } from '../utils/utils.js';
+import { createElementToCard, mainHtmlID } from '../utils/utils.js';
 
 export const displayTags = () => {
-    const main = document.getElementById('main');
+    const main = mainHtmlID();
 
     const elButton = createElementToCard('button', 'coco', [
         { attribut: 'class', content: 'tag-button' },
     ]);
 
-    const elLabel = createElementToCard('label', null, [
+    const elDiv = createElementToCard('div', null, [
         { attribut: 'id', content: 'label-tag-button' },
     ]);
 
-    elLabel.appendChild(elButton);
-    main.appendChild(elLabel);
+    elDiv.appendChild(elButton);
+    main.appendChild(elDiv);
 };

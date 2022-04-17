@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+body {
+  font-family: "Lato", sans-serif;
+}
 body #header {
   margin-top: 25px;
 }
@@ -13,12 +17,13 @@ body main {
 }
 body main #label-search-filter input {
   width: 100%;
-  height: 5vw;
+  height: 70px;
   border: none;
   background-color: #E7E7E7;
   border-radius: 5px;
   padding: 10px;
   color: #ADADAD;
+  font-size: 18px;
 }
 body main #label-search-filter input::placeholder {
   color: #ADADAD;
@@ -31,12 +36,19 @@ body main #label-tag-button button {
   border: none;
   border-radius: 5px;
   background-color: #3381F7;
+  font-size: 14px;
+  height: 40px;
+  font-weight: 700;
+  line-height: 17px;
 }
 body main #label-tag-button button::placeholder {
   color: white;
 }
 body main #label-tag-button button:focus {
   outline: none;
+}
+body main #label-selects-input {
+  font-size: 18px;
 }
 body main #label-selects-input input {
   border: none;
@@ -68,6 +80,9 @@ body main #label-recipes {
   grid-gap: 50px;
   padding: 50px;
 }
+body main #label-recipes article {
+  width: 450px;
+}
 body main #label-recipes article > div img {
   width: 100%;
   object-fit: cover;
@@ -88,13 +103,23 @@ body main #label-recipes article > div > div h1 {
 body main #label-recipes article > div > div span {
   grid-area: duration;
   text-align: right;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
 }
 body main #label-recipes article > div > div ul {
   grid-area: ingredients;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  flex-direction: column;
 }
 body main #label-recipes article > div > div p {
   grid-area: how-to;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

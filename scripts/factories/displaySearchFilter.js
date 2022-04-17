@@ -1,7 +1,7 @@
-import { createElementToCard } from '../utils/utils.js';
+import { createElementToCard, mainHtmlID } from '../utils/utils.js';
 
 export const displaySearchFilter = () => {
-    const main = document.getElementById('main');
+    const main = mainHtmlID();
 
     const elInput = createElementToCard('input', null, [
         { attribut: 'id', content: 'search-filter' },

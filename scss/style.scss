@@ -1,6 +1,8 @@
 @import "variables";
+@import "fonts";
 
 body {
+    font-family: 'Lato', sans-serif;
     #header {
         margin-top: 25px;
         a {
@@ -20,12 +22,13 @@ body {
         #label-search-filter {
             input {
                 width: 100%;
-                height: 5vw;
+                height: 70px;
                 border: none;
                 background-color: #E7E7E7;
                 border-radius: 5px;
                 padding: 10px;
                 color: #ADADAD;
+                font-size: 18px;
                 &::placeholder {
                     color: #ADADAD;
                 }
@@ -41,6 +44,10 @@ body {
                 border: none;
                 border-radius: 5px;
                 background-color: #3381F7;
+                font-size: 14px;
+                height: 40px;
+                font-weight: 700;
+                line-height: 17px;
                 &::placeholder {
                     color: white;
                 }
@@ -51,6 +58,7 @@ body {
         }
 
         #label-selects-input {
+            font-size: 18px;
             input {
                 border: none;
                 border-radius: 5px;
@@ -83,6 +91,7 @@ body {
             grid-gap: 50px;
             padding: 50px;
             article {
+                width: 450px;
                 > div {
                     img {
                         width: 100%;
@@ -106,13 +115,23 @@ body {
                         span {
                             grid-area: duration;
                             text-align: right;
-                            font-weight: bold;
+                            font-weight: 700;
+                            font-size: 18px;
+                            line-height: 22px;
                         }
                         ul{
                             grid-area: ingredients;
+                            font-weight: 700;
+                            font-size: 12px;
+                            line-height: 14px;
+                            display: flex;
+                            flex-direction: column;
                         }
                         p {
                             grid-area: how-to;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 100%;
                         }
                     }
                 }

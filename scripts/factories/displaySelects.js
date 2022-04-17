@@ -1,21 +1,24 @@
-import { createElementToCard } from '../utils/utils.js';
+import { createElementToCard, mainHtmlID } from '../utils/utils.js';
 
-export const displaySelectsGroup = () => {
-    const main = document.getElementById('main');
+export const displaySelects = () => {
+    const main = mainHtmlID();
 
     const elIngredients = createElementToCard('input', null, [
         { attribut: 'name', content: 'Ingredient' },
         { attribut: 'placeholder', content: 'Ingrédients' },
+        { attribut: 'type', content: 'text' },
     ]);
 
     const elApparel = createElementToCard('input', null, [
         { attribut: 'name', content: 'apparel' },
         { attribut: 'placeholder', content: 'Appareils' },
+        { attribut: 'type', content: 'text' },
     ]);
 
     const elUtensil = createElementToCard('input', null, [
         { attribut: 'name', content: 'utensil' },
         { attribut: 'placeholder', content: 'Ustensiles' },
+        { attribut: 'type', content: 'text' },
     ]);
 
     const elLabel = createElementToCard('label', null, [
