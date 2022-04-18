@@ -9,17 +9,17 @@ body {
             height: 100px;
             display: flex;
             justify-content: center;
-            img {
-
-            }
+            img {}
         }
     }
     main {
         display: grid;
         row-gap: 10px;
-        padding: 40px;
-
-        #label-search-filter {
+        padding: 38px 100px 0 100px;
+        > div {
+            margin-bottom: 15px;
+        }
+        #search-filter {
             input {
                 width: 100%;
                 height: 70px;
@@ -38,7 +38,7 @@ body {
             }
         }
 
-        #label-tag-button {
+        #tag-button {
             button {
                 color: white;
                 border: none;
@@ -57,7 +57,7 @@ body {
             }
         }
 
-        #label-selects-input {
+        #selects-input {
             font-size: 18px;
             input {
                 border: none;
@@ -89,15 +89,14 @@ body {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-gap: 50px;
-            padding: 50px;
             article {
-                width: 450px;
                 > div {
                     img {
                         width: 100%;
                         object-fit: cover;
-                        height: 22vw;
+                        height: 13vw;
                         background-color: $img-background-color;
+                        border-radius: 10px 10px 0 0;
                     }
                     > div {
                         display: grid;
@@ -108,6 +107,7 @@ body {
                         grid-gap: 20px;
                         padding: 10px;
                         background-color: $legend-background;
+                        height: 13vw;
                         h1 {
                             grid-area: title;
                             font-size: 16px;
@@ -132,6 +132,9 @@ body {
                             font-weight: 400;
                             font-size: 12px;
                             line-height: 100%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
                     }
                 }

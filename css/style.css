@@ -13,9 +13,12 @@ body #header a {
 body main {
   display: grid;
   row-gap: 10px;
-  padding: 40px;
+  padding: 38px 100px 0 100px;
 }
-body main #label-search-filter input {
+body main > div {
+  margin-bottom: 15px;
+}
+body main #search-filter input {
   width: 100%;
   height: 70px;
   border: none;
@@ -25,13 +28,13 @@ body main #label-search-filter input {
   color: #ADADAD;
   font-size: 18px;
 }
-body main #label-search-filter input::placeholder {
+body main #search-filter input::placeholder {
   color: #ADADAD;
 }
-body main #label-search-filter input:focus {
+body main #search-filter input:focus {
   outline: none;
 }
-body main #label-tag-button button {
+body main #tag-button button {
   color: white;
   border: none;
   border-radius: 5px;
@@ -41,16 +44,16 @@ body main #label-tag-button button {
   font-weight: 700;
   line-height: 17px;
 }
-body main #label-tag-button button::placeholder {
+body main #tag-button button::placeholder {
   color: white;
 }
-body main #label-tag-button button:focus {
+body main #tag-button button:focus {
   outline: none;
 }
-body main #label-selects-input {
+body main #selects-input {
   font-size: 18px;
 }
-body main #label-selects-input input {
+body main #selects-input input {
   border: none;
   border-radius: 5px;
   height: 5vw;
@@ -59,35 +62,32 @@ body main #label-selects-input input {
   margin-right: 1rem;
   color: white;
 }
-body main #label-selects-input input::placeholder {
+body main #selects-input input::placeholder {
   color: white;
 }
-body main #label-selects-input input:focus {
+body main #selects-input input:focus {
   outline: none;
 }
-body main #label-selects-input input:nth-child(1) {
+body main #selects-input input:nth-child(1) {
   background-color: #3381F7;
 }
-body main #label-selects-input input:nth-child(2) {
+body main #selects-input input:nth-child(2) {
   background-color: #68D9A4;
 }
-body main #label-selects-input input:nth-child(3) {
+body main #selects-input input:nth-child(3) {
   background-color: #ED6454;
 }
 body main #label-recipes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;
-  padding: 50px;
-}
-body main #label-recipes article {
-  width: 450px;
 }
 body main #label-recipes article > div img {
   width: 100%;
   object-fit: cover;
-  height: 22vw;
+  height: 13vw;
   background-color: #C7BFBE;
+  border-radius: 10px 10px 0 0;
 }
 body main #label-recipes article > div > div {
   display: grid;
@@ -95,6 +95,7 @@ body main #label-recipes article > div > div {
   grid-gap: 20px;
   padding: 10px;
   background-color: #E7E7E7;
+  height: 13vw;
 }
 body main #label-recipes article > div > div h1 {
   grid-area: title;
@@ -120,6 +121,9 @@ body main #label-recipes article > div > div p {
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /*# sourceMappingURL=style.css.map */

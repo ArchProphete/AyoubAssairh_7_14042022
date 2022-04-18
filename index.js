@@ -1,3 +1,4 @@
-import { displayPage } from './scripts/pages/displayPage.js';
+import { DisplayPage } from './scripts/pages/DisplayPage.js';
 
-displayPage(recipes);
+const launchPage = new DisplayPage(recipes);
+launchPage.display();

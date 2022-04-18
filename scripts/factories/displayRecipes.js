@@ -1,41 +1,52 @@
-import { createElementToCard, mainHtmlID } from '../utils/utils.js';
+import { createElementToCard } from '../utils/utils.js';
 
-export const displayRecipes = (recipe) => {
-    const main = mainHtmlID();
+export class DisplayRecipes {
+    constructor() {
+        this.labelRecipesDiv = document.getElementById('label-recipes');
+    }
 
-    const elH1 = createElementToCard('h1', recipe.name, null);
-    const elSpan = createElementToCard('span', `${recipe.time}min`, null);
-    const elLi = recipe.ingredients.map((ingredient) =>
-        createElementToCard(
-            'li',
-            `${ingredient.ingredient ? ingredient.ingredient : ''}: ${
-                ingredient.quantity ? ingredient.quantity : ''
-            } ${ingredient.unit ? ingredient.unit : ''} `,
-            null
-        )
-    );
+    createRecipes(recipes) {
+        recipes.map((recipe) => {
+            this.elH1 = createElementToCard('h1', recipe.name, null);
+            this.elSpan = createElementToCard(
+                'span',
+                `${recipe.time} min`,
+                null
+            );
+            this.elLi = recipe.ingredients.map((ingredient) =>
+                createElementToCard(
+                    'li',
+                    `${ingredient.ingredient ? ingredient.ingredient : ''}: ${
+                        ingredient.quantity ? ingredient.quantity : ''
+                    } ${ingredient.unit ? ingredient.unit : ''} `,
+                    null
+                )
+            );
 
-    const elUl = createElementToCard('ul', null, null);
-    const elP = createElementToCard('p', recipe.description, null);
-    const elDivFigcaption = createElementToCard('div', null, null);
+            this.elUl = createElementToCard('ul', null, null);
+            this.elP = createElementToCard('p', recipe.description, null);
+            this.elDivFigcaption = createElementToCard('div', null, null);
 
-    elUl.append(...elLi);
-    elDivFigcaption.append(elH1, elSpan, elUl, elP);
+            this.elUl.append(...this.elLi);
+            this.elDivFigcaption.append(
+                this.elH1,
+                this.elSpan,
+                this.elUl,
+                this.elP
+            );
 
-    const elImg = createElementToCard('img', null, null);
-    const elDivFigure = createElementToCard('div', null, null);
+            const elImg = createElementToCard('img', null, null);
+            const elDivFigure = createElementToCard('div', null, null);
 
-    elDivFigure.append(elImg, elDivFigcaption);
+            elDivFigure.append(elImg, this.elDivFigcaption);
 
-    const elArticle = createElementToCard('article', null, null);
+            const elArticle = createElementToCard('article', null, [
+                { attribut: 'class', content: 'search-result' },
+            ]);
 
-    elArticle.appendChild(elDivFigure);
+            elArticle.appendChild(elDivFigure);
 
-    const elDivRecipes = createElementToCard('div', null, [
-        { attribut: 'id', content: 'label-recipes' },
-        { attribut: 'tabindex', content: '5' },
-    ]);
-
-    elDivRecipes.append(elArticle);
-    main.appendChild(elDivRecipes);
-};
+            this.labelRecipesDiv.appendChild(elArticle);
+        });
+    }
+}
