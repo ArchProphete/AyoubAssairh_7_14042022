@@ -5,7 +5,7 @@ export class DisplayRecipes {
         this.labelRecipesDiv = document.getElementById('label-recipes');
     }
 
-    createRecipes(recipes) {
+    createRecipes() {
         recipes.map((recipe) => {
             this.elH1 = createElementToCard('h1', recipe.name, null);
             this.elSpan = createElementToCard(
