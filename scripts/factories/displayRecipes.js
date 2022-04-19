@@ -17,7 +17,7 @@ export class DisplayRecipes {
                 createElementToCard(
                     'li',
                     `${ingredient.ingredient ? ingredient.ingredient : ''}: ${
-                        ingredient.quantity ? ingredient.quantity : ''
+                        ingredient.quantity ? ingredient.quantite : ''
                     } ${ingredient.unit ? ingredient.unit : ''} `,
                     null
                 )
@@ -35,18 +35,17 @@ export class DisplayRecipes {
                 this.elP
             );
 
-            const elImg = createElementToCard('img', null, null);
-            const elDivFigure = createElementToCard('div', null, null);
+            this.elImg = createElementToCard('img', null, null);
+            this.elDivFigure = createElementToCard('div', null, null);
 
-            elDivFigure.append(elImg, this.elDivFigcaption);
+            this.elDivFigure.append(this.elImg, this.elDivFigcaption);
 
-            const elArticle = createElementToCard('article', null, [
+            this.elArticle = createElementToCard('article', null, [
                 { attribut: 'class', content: 'search-result' },
             ]);
 
-            elArticle.appendChild(elDivFigure);
-
-            this.labelRecipesDiv.appendChild(elArticle);
+            this.elArticle.appendChild(this.elDivFigure);
+            this.labelRecipesDiv.appendChild(this.elArticle);
         });
     }
 }

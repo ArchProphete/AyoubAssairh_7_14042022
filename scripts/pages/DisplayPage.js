@@ -3,9 +3,12 @@ import { DisplaySearchFilter } from '../factories/DisplaySearchFilter.js';
 import { DisplayTags } from '../factories/DisplayTags.js';
 import { DisplaySelects } from '../factories/DisplaySelects.js';
 import { DisplayRecipes } from '../factories/displayRecipes.js';
+import { Filter } from '../utils/Filter.js';
 
 export class DisplayPage {
-    constructor() {}
+    constructor() {
+        new Filter().getRecipes();
+    }
 
     display() {
         new DisplayHeader().createHeader();
