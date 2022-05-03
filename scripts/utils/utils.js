@@ -24,3 +24,10 @@ export const createElementToCard = (tag, data, attr) => {
     }
     return element;
 };
+
+export const truncate = (input) => {
+    if (input.length > 150) {
+        return input.substring(0, 150) + '...';
+    }
+    return input;
+};

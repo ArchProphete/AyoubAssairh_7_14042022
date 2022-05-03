@@ -13,6 +13,13 @@ export class DisplaySearchFilter {
             { attribut: 'tabindex', content: '2' },
         ]);
 
-        this.searchFilter.appendChild(this.elInput);
+        this.elIcon = createElementToCard('i', null, [
+            { attribut: 'class', content: 'fa-solid fa-magnifying-glass' },
+        ]);
+
+        this.elLabel = createElementToCard('label', null, null);
+
+        this.elLabel.append(this.elInput, this.elIcon);
+        this.searchFilter.appendChild(this.elLabel);
     }
 }

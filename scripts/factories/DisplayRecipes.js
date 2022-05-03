@@ -1,12 +1,20 @@
-import { createElementToCard } from '../utils/utils.js';
+import { createElementToCard, truncate } from '../utils/utils.js';
 
 export class DisplayRecipes {
-    constructor() {
+    constructor(recipes) {
+        this.recipes = recipes;
         this.labelRecipesDiv = document.getElementById('label-recipes');
     }
 
     createRecipes() {
-        recipes.map((recipe) => {
+        /*
+        this.recipes = this.recipes.filter((recipe) => {
+            if (recipe.id >= 15) {
+                return recipe;
+            }
+        });
+*/
+        this.recipes.map((recipe) => {
             this.elH1 = createElementToCard('h1', recipe.name, null);
             this.elSpan = createElementToCard(
                 'span',
@@ -24,7 +32,11 @@ export class DisplayRecipes {
             );
 
             this.elUl = createElementToCard('ul', null, null);
-            this.elP = createElementToCard('p', recipe.description, null);
+            this.elP = createElementToCard(
+                'p',
+                truncate(recipe.description),
+                null
+            );
             this.elDivFigcaption = createElementToCard('div', null, null);
 
             this.elUl.append(...this.elLi);

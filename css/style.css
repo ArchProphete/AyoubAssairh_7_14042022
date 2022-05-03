@@ -15,9 +15,6 @@ body main {
   row-gap: 10px;
   padding: 38px 100px 0 100px;
 }
-body main > div {
-  margin-bottom: 15px;
-}
 body main #search-filter input {
   width: 100%;
   height: 70px;
@@ -33,6 +30,9 @@ body main #search-filter input::placeholder {
 }
 body main #search-filter input:focus {
   outline: none;
+}
+body main #search-filter i {
+  background: #68D9A4;
 }
 body main #tag-button button {
   color: white;
@@ -121,9 +121,6 @@ body main #label-recipes article > div > div p {
   font-weight: 400;
   font-size: 12px;
   line-height: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
 /*# sourceMappingURL=style.css.map */

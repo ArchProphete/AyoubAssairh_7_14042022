@@ -16,9 +16,6 @@ body {
         display: grid;
         row-gap: 10px;
         padding: 38px 100px 0 100px;
-        > div {
-            margin-bottom: 15px;
-        }
         #search-filter {
             input {
                 width: 100%;
@@ -35,6 +32,9 @@ body {
                 &:focus {
                     outline: none;
                 }
+            }
+            i {
+                background: #68D9A4;
             }
         }
 
@@ -132,9 +132,7 @@ body {
                             font-weight: 400;
                             font-size: 12px;
                             line-height: 100%;
-                            overflow: hidden;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
+
                         }
                     }
                 }
