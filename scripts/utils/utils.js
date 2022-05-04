@@ -31,3 +31,7 @@ export const truncate = (input) => {
     }
     return input;
 };
+
+export const deleteDuplicateValue = (array) => {
+    return [...new Set(array)];
+};

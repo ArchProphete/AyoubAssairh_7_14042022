@@ -9,6 +9,12 @@ export class DisplayTags {
         this.elButton = createElementToCard('button', 'coco', [
             { attribut: 'class', content: 'tag-button' },
         ]);
-        this.tagButton.appendChild(this.elButton);
+
+        this.elIcon = createElementToCard('i', null, [
+            { attribut: 'class', content: 'fa-solid fa-circle-xmark' },
+        ]);
+
+        this.elButton.append(this.elIcon);
+        this.tagButton.append(this.elButton);
     }
 }

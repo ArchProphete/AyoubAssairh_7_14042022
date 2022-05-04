@@ -54,6 +54,7 @@ body {
                 &:focus {
                     outline: none;
                 }
+                svg { margin-left: 10px;}
             }
         }
 
@@ -82,6 +83,45 @@ body {
                 &:nth-child(3) {
                     background-color: $tertiary-color;
                 }
+
+            }
+            #ingredients-dropdown, #apparels-dropdown, #ustensils-dropdown {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                padding: 20px;
+                border-radius: 5px;
+                width: 475px;
+                li {
+                    border: none;
+                    color: white;
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 22px;
+                    &:hover {
+                        cursor: pointer;
+                        background: white;
+                    }
+
+                }
+            }
+            #ingredients-dropdown {
+                background-color: $primary-color;
+                li {
+                    background-color: $primary-color;
+                }
+            }
+            #apparels-dropdown {
+                background-color: $secondary-color;
+                li {
+                    background-color: $secondary-color;
+
+                }
+            }
+            #ustensils-dropdown {
+                background-color: $tertiary-color;
+                li {
+                    background-color: $tertiary-color;
             }
         }
 
@@ -102,8 +142,7 @@ body {
                         display: grid;
                         grid-template-areas:
                                 "title duration"
-                                "ingredients how-to"
-                        ;
+                                "ingredients how-to";
                         grid-gap: 20px;
                         padding: 10px;
                         background-color: $legend-background;
@@ -139,4 +178,5 @@ body {
             }
         }
     }
+}
 }

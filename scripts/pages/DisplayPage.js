@@ -22,7 +22,7 @@ export class DisplayPage {
             new DisplayHeader(),
             new DisplaySearchFilter(),
             new DisplayTags(),
-            new DisplaySelects(),
+            new DisplaySelects(this.recipes),
             new DisplayRecipes(this.recipes),
         ];
 
