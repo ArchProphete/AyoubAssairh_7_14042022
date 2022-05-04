@@ -16,5 +16,9 @@ export class DisplayTags {
 
         this.elButton.append(this.elIcon);
         this.tagButton.append(this.elButton);
+
+        this.elButton.addEventListener('click', () => {
+            this.elButton.style.display = 'none';
+        });
     }
 }

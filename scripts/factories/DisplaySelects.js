@@ -22,6 +22,12 @@ export class DisplaySelects {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
+        this.elLabelIngredients = createElementToCard('label', null, [
+            { attribut: 'id', content: 'label-ingredients' },
+        ]);
+
+        this.elLabelIngredients.append(this.elIngredients, this.elIconI);
+
         this.elUlIngredients = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ingredients-dropdown' },
         ]);
@@ -52,6 +58,12 @@ export class DisplaySelects {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
+        this.elLabelAppareil = createElementToCard('label', null, [
+            { attribut: 'id', content: 'label-apparels' },
+        ]);
+
+        this.elLabelAppareil.append(this.elApparel, this.elIconA);
+
         this.elUlApparels = createElementToCard('ul', null, [
             { attribut: 'id', content: 'apparels-dropdown' },
         ]);
@@ -80,6 +92,12 @@ export class DisplaySelects {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
+        this.elLabelUstensils = createElementToCard('label', null, [
+            { attribut: 'id', content: 'label-ustensils' },
+        ]);
+
+        this.elLabelUstensils.append(this.elUstensil, this.elIconU);
+
         this.elUlUstensils = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ustensils-dropdown' },
         ]);
@@ -101,15 +119,28 @@ export class DisplaySelects {
 
         // FINAL APPENDS
         this.selectInput.append(
+            this.elLabelIngredients,
+            this.elLabelAppareil,
+            this.elLabelUstensils,
             this.elUlIngredients,
             this.elUlApparels,
-            this.elUlUstensils,
-            this.elIngredients,
-            this.elIconI,
-            this.elApparel,
-            this.elIconA,
-            this.elUstensil,
-            this.elIconU
+            this.elUlUstensils
         );
+
+        this.elUlIngredients.style.display = 'none';
+        this.elUlApparels.style.display = 'none';
+        this.elUlUstensils.style.display = 'none';
+
+        this.elIngredients.addEventListener('click', () => {
+            this.elUlIngredients.style.display = 'grid';
+        });
+
+        this.elApparel.addEventListener('click', () => {
+            this.elUlApparels.style.display = 'grid';
+        });
+
+        this.elUstensil.addEventListener('click', () => {
+            this.elUlUstensils.style.display = 'grid';
+        });
     }
 }

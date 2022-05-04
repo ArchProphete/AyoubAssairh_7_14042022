@@ -9,7 +9,6 @@ body {
             height: 100px;
             display: flex;
             justify-content: center;
-            img {}
         }
     }
     main {
@@ -33,8 +32,10 @@ body {
                     outline: none;
                 }
             }
-            i {
-                background: #68D9A4;
+            svg {
+                position: absolute;
+                font-size: 40px;
+                margin: 15px -50px;
             }
         }
 
@@ -54,43 +55,91 @@ body {
                 &:focus {
                     outline: none;
                 }
-                svg { margin-left: 10px;}
+                &:hover {
+                    filter: brightness(150%);
+                }
+                svg { margin-left: 10px; }
             }
         }
 
         #selects-input {
             font-size: 18px;
-            input {
+            display: grid;
+            grid-gap: 8rem;
+            grid-template-columns: 70px 70px 70px;
+            grid-template-areas:
+                    'label-ingredients label-apparels label-ustensils'
+                    'ingredients-dropdown . .'
+                    'apparels-dropdown . .'
+                    'ustensils-dropdown . .'
+        ;
+            grid-row-gap: 0;
+            #label-ingredients {
+                grid-area: label-ingredients;
+            }
+            #label-apparels {
+                grid-area: label-apparels
+            }
+            #label-ustensils {
+                grid-area: label-ustensils;
+            }
+            #ingredients-dropdown {
+                grid-area: ingredients-dropdown;
+            }
+            #apparels-dropdown {
+                grid-area: apparels-dropdown;
+            }
+            #ustensils-dropdown {
+                grid-area: ustensils-dropdown;
+            }
+            #label-ingredients input, #label-apparels input, #label-ustensils input {
                 border: none;
                 border-radius: 5px;
                 height: 5vw;
                 padding: 34px;
                 max-width: 11rem;
-                margin-right: 1rem;
+                color: white;
+
                 &::placeholder {
                     color: white;
                 }
+
                 &:focus {
                     outline: none;
                 }
-                color: white;
-                &:nth-child(1) {
-                    background-color: $primary-color;
-                }
-                &:nth-child(2) {
-                    background-color: $secondary-color;
-                }
-                &:nth-child(3) {
-                    background-color: $tertiary-color;
-                }
+            }
+
+            #label-ingredients, #label-ingredients input {
+                background-color: $primary-color;
+                border-radius: 5px;
 
             }
+
+            #label-apparels, #label-apparels input {
+                background-color: $secondary-color;
+                border-radius: 5px;
+
+            }
+
+            #label-ustensils, #label-ustensils input {
+                background-color: $tertiary-color;
+                border-radius: 5px;
+
+            }
+
+            #label-ingredients svg, #label-apparels svg, #label-ustensils svg {
+                position: absolute;
+                margin: -45px 0px 0px 140px;
+                color: white;
+            }
+
             #ingredients-dropdown, #apparels-dropdown, #ustensils-dropdown {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 padding: 20px;
                 border-radius: 5px;
                 width: 475px;
+
                 li {
                     border: none;
                     color: white;
@@ -98,30 +147,36 @@ body {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 22px;
+
                     &:hover {
                         cursor: pointer;
-                        background: white;
-                    }
-
+                        filter: brightness(150%);                    }
                 }
             }
+
             #ingredients-dropdown {
                 background-color: $primary-color;
+
                 li {
                     background-color: $primary-color;
                 }
             }
+
             #apparels-dropdown {
                 background-color: $secondary-color;
+
                 li {
                     background-color: $secondary-color;
 
                 }
             }
+
             #ustensils-dropdown {
                 background-color: $tertiary-color;
+
                 li {
                     background-color: $tertiary-color;
+                }
             }
         }
 
@@ -178,5 +233,4 @@ body {
             }
         }
     }
-}
 }

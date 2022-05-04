@@ -25,7 +25,7 @@ export class DisplayRecipes {
                 createElementToCard(
                     'li',
                     `${ingredient.ingredient ? ingredient.ingredient : ''}: ${
-                        ingredient.quantity ? ingredient.quantite : ''
+                        ingredient.quantity ? ingredient.quantity : ''
                     } ${ingredient.unit ? ingredient.unit : ''} `,
                     null
                 )
