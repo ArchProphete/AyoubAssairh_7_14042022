@@ -11,6 +11,7 @@ export class DisplaySearchFilter {
             { attribut: 'type', content: 'text' },
             { attribut: 'placeholder', content: 'Rechercher une recette' },
             { attribut: 'tabindex', content: '2' },
+            { attribut: 'aria-label', content: `Recherchez votre recette` },
         ]);
 
         this.elIcon = createElementToCard('i', null, [

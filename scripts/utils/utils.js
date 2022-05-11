@@ -35,3 +35,35 @@ export const truncate = (input) => {
 export const deleteDuplicateValue = (array) => {
     return [...new Set(array)];
 };
+
+export const filterInput = (characters, elements) => {
+    if (characters.length > 2) {
+        elements.forEach((element) => {
+            if (element.textContent.toLowerCase().includes(characters)) {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        });
+    }
+};
+
+/**
+ * Display dropdown and close the others one
+ * @param selectInput
+ * @param toDisplay
+ * @param firstToHide
+ * @param SecondToHide
+ */
+export const displayDropDownOnClick = (
+    selectInput,
+    toDisplay,
+    firstToHide,
+    SecondToHide
+) => {
+    selectInput.addEventListener('click', () => {
+        toDisplay.style.display = 'grid';
+        firstToHide.style.display = 'none';
+        SecondToHide.style.display = 'none';
+    });
+};

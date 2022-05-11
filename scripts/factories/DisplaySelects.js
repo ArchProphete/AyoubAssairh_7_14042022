@@ -1,4 +1,10 @@
-import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
+import {
+    createElementToCard,
+    deleteDuplicateValue,
+    displayDropDownOnClick,
+} from '../utils/utils.js';
+import { Filter } from '../utils/Filter.js';
+import { DisplayTags } from './DisplayTags.js';
 
 export class DisplaySelects {
     ingredient = [];
@@ -7,15 +13,18 @@ export class DisplaySelects {
 
     constructor(recipes) {
         this.recipes = recipes;
+        this.tag = new DisplayTags();
         this.selectInput = document.getElementById('selects-input');
     }
 
     createSelects() {
         // INGREDIENTS
         this.elIngredients = createElementToCard('input', null, [
+            { attribut: 'id', content: 'ingredients-input' },
             { attribut: 'name', content: 'Ingredient' },
             { attribut: 'placeholder', content: 'Ingrédients' },
-            { attribut: 'type', content: 'text' },
+            { attribut: 'tabindex', content: '4' },
+            { attribut: 'aria-label', content: `Mes ingrédients` },
         ]);
 
         this.elIconI = createElementToCard('i', 'null', [
@@ -42,16 +51,19 @@ export class DisplaySelects {
 
         this.uniqIngredient.map((ingredient) => {
             this.elLiIngredients = createElementToCard('li', `${ingredient}`, [
-                { attribut: 'class', content: 'dropdown' },
+                { attribut: 'class', content: 'dropdown-ingredients' },
+                { attribut: 'title', content: `${ingredient}` },
             ]);
-            this.elUlIngredients.append(this.elLiIngredients);
+            this.elUlIngredients.appendChild(this.elLiIngredients);
         });
 
         // APPAREILS
         this.elApparel = createElementToCard('input', null, [
+            { attribut: 'id', content: 'apparels-input' },
             { attribut: 'name', content: 'apparel' },
             { attribut: 'placeholder', content: 'Appareils' },
-            { attribut: 'type', content: 'text' },
+            { attribut: 'tabindex', content: '4' },
+            { attribut: 'aria-label', content: `Mes appareils` },
         ]);
 
         this.elIconA = createElementToCard('i', 'null', [
@@ -76,16 +88,19 @@ export class DisplaySelects {
 
         this.uniqApparels.map((apparel) => {
             this.elLiApparels = createElementToCard('li', `${apparel}`, [
-                { attribut: 'class', content: 'dropdown' },
+                { attribut: 'class', content: 'dropdown-apparels' },
+                { attribut: 'title', content: `${apparel}` },
             ]);
-            this.elUlApparels.append(this.elLiApparels);
+            this.elUlApparels.appendChild(this.elLiApparels);
         });
 
         // USTENCILES
         this.elUstensil = createElementToCard('input', null, [
+            { attribut: 'id', content: 'ustensils-input' },
             { attribut: 'name', content: 'utensil' },
             { attribut: 'placeholder', content: 'Ustensiles' },
-            { attribut: 'type', content: 'text' },
+            { attribut: 'tabindex', content: '4' },
+            { attribut: 'aria-label', content: `Mes ustensiles` },
         ]);
 
         this.elIconU = createElementToCard('i', 'null', [
@@ -112,9 +127,10 @@ export class DisplaySelects {
 
         uniqUstensils.map((ustensil) => {
             this.elLiUstensil = createElementToCard('li', `${ustensil}`, [
-                { attribut: 'class', content: 'dropdown' },
+                { attribut: 'class', content: 'dropdown-ustensils' },
+                { attribut: 'title', content: `${ustensil}` },
             ]);
-            this.elUlUstensils.append(this.elLiUstensil);
+            this.elUlUstensils.appendChild(this.elLiUstensil);
         });
 
         // FINAL APPENDS
@@ -127,20 +143,54 @@ export class DisplaySelects {
             this.elUlUstensils
         );
 
+        // Hide all dropdown
         this.elUlIngredients.style.display = 'none';
         this.elUlApparels.style.display = 'none';
         this.elUlUstensils.style.display = 'none';
 
-        this.elIngredients.addEventListener('click', () => {
-            this.elUlIngredients.style.display = 'grid';
+        // Display dropdown on click
+        displayDropDownOnClick(
+            this.elIngredients,
+            this.elUlIngredients,
+            this.elUlApparels,
+            this.elUlUstensils
+        );
+        displayDropDownOnClick(
+            this.elApparel,
+            this.elUlApparels,
+            this.elUlIngredients,
+            this.elUlUstensils
+        );
+        displayDropDownOnClick(
+            this.elUstensil,
+            this.elUlUstensils,
+            this.elUlApparels,
+            this.elUlIngredients
+        );
+
+        // Call filters functions
+        this.filter = new Filter();
+        this.filter.filterIngredients();
+        this.filter.filterApparels();
+        this.filter.filterUstensils();
+
+        // Create tags
+        this.elUlIngredients.addEventListener('click', (e) => {
+            const color = '#3381F7';
+            const ingredient = e.target.title;
+            this.tag.createTags(ingredient, color);
         });
 
-        this.elApparel.addEventListener('click', () => {
-            this.elUlApparels.style.display = 'grid';
+        this.elUlApparels.addEventListener('click', (e) => {
+            const color = '#68D9A4';
+            const apparels = e.target.title;
+            this.tag.createTags(apparels, color);
         });
 
-        this.elUstensil.addEventListener('click', () => {
-            this.elUlUstensils.style.display = 'grid';
+        this.elUlUstensils.addEventListener('click', (e) => {
+            const color = '#ED6454';
+            const ustensils = e.target.title;
+            this.tag.createTags(ustensils, color);
         });
     }
 }

@@ -40,11 +40,11 @@ body main #tag-button button {
   color: white;
   border: none;
   border-radius: 5px;
-  background-color: #3381F7;
   font-size: 14px;
   height: 40px;
   font-weight: 700;
   line-height: 17px;
+  margin: 10px 10px 5px 0;
 }
 body main #tag-button button::placeholder {
   color: white;
@@ -129,10 +129,16 @@ body main #selects-input #ingredients-dropdown li, body main #selects-input #app
   font-weight: 400;
   font-size: 14px;
   line-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 body main #selects-input #ingredients-dropdown li:hover, body main #selects-input #apparels-dropdown li:hover, body main #selects-input #ustensils-dropdown li:hover {
   cursor: pointer;
   filter: brightness(150%);
+}
+body main #selects-input #ingredients-dropdown li::first-letter, body main #selects-input #apparels-dropdown li::first-letter, body main #selects-input #ustensils-dropdown li::first-letter {
+  text-transform: capitalize;
 }
 body main #selects-input #ingredients-dropdown {
   background-color: #3381F7;

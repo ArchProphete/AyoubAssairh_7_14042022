@@ -5,9 +5,11 @@ export class DisplayTags {
         this.tagButton = document.getElementById('tag-button');
     }
 
-    createTags() {
-        this.elButton = createElementToCard('button', 'coco', [
+    // TODO faire le aria-label des tags
+    createTags(selectType, backgroundColor) {
+        this.elButton = createElementToCard('button', selectType, [
             { attribut: 'class', content: 'tag-button' },
+            { attribut: 'tabindex', content: '3' },
         ]);
 
         this.elIcon = createElementToCard('i', null, [
@@ -17,6 +19,10 @@ export class DisplayTags {
         this.elButton.append(this.elIcon);
         this.tagButton.append(this.elButton);
 
+        this.elButton.style.backgroundColor = backgroundColor;
+    }
+
+    deleteTag() {
         this.elButton.addEventListener('click', () => {
             this.elButton.style.display = 'none';
         });

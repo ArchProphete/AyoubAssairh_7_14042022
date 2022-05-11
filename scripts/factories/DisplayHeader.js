@@ -11,10 +11,11 @@ export class DisplayHeader {
             { attribut: 'id', content: 'logo' },
             { attribut: 'alt', content: 'Les petits plats' },
             { attribut: 'tabindex', content: '1' },
+            { attribut: 'aria-label', content: `Logo de Les petits plats` },
         ]);
 
         this.elA = createElementToCard('a', null, [
-            { attribut: 'href', content: '#' },
+            { attribut: 'href', content: '' },
         ]);
 
         this.elA.appendChild(this.elLogo);

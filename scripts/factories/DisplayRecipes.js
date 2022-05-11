@@ -7,13 +7,6 @@ export class DisplayRecipes {
     }
 
     createRecipes() {
-        /*
-        this.recipes = this.recipes.filter((recipe) => {
-            if (recipe.id >= 15) {
-                return recipe;
-            }
-        });
-*/
         this.recipes.map((recipe) => {
             this.elH1 = createElementToCard('h1', recipe.name, null);
             this.elSpan = createElementToCard(
@@ -54,6 +47,7 @@ export class DisplayRecipes {
 
             this.elArticle = createElementToCard('article', null, [
                 { attribut: 'class', content: 'search-result' },
+                { attribut: 'tabindex', content: '5' },
             ]);
 
             this.elArticle.appendChild(this.elDivFigure);

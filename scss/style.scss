@@ -44,11 +44,11 @@ body {
                 color: white;
                 border: none;
                 border-radius: 5px;
-                background-color: #3381F7;
                 font-size: 14px;
                 height: 40px;
                 font-weight: 700;
                 line-height: 17px;
+                margin: 10px 10px 5px 0;
                 &::placeholder {
                     color: white;
                 }
@@ -71,8 +71,7 @@ body {
                     'label-ingredients label-apparels label-ustensils'
                     'ingredients-dropdown . .'
                     'apparels-dropdown . .'
-                    'ustensils-dropdown . .'
-        ;
+                    'ustensils-dropdown . .';
             grid-row-gap: 0;
             #label-ingredients {
                 grid-area: label-ingredients;
@@ -147,10 +146,16 @@ body {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 22px;
-
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                     &:hover {
                         cursor: pointer;
-                        filter: brightness(150%);                    }
+                        filter: brightness(150%);
+                    }
+                    &::first-letter {
+                        text-transform:capitalize;
+                    }
                 }
             }
 

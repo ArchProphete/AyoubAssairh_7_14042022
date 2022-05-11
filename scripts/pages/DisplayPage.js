@@ -1,6 +1,5 @@
 import { DisplayHeader } from '../factories/DisplayHeader.js';
 import { DisplaySearchFilter } from '../factories/DisplaySearchFilter.js';
-import { DisplayTags } from '../factories/DisplayTags.js';
 import { DisplaySelects } from '../factories/DisplaySelects.js';
 import { DisplayRecipes } from '../factories/DisplayRecipes.js';
 import { Filter } from '../utils/Filter.js';
@@ -15,20 +14,17 @@ export class DisplayPage {
         const [
             displayHeader,
             displaySearchFilter,
-            displayTags,
             displaySelects,
             displayRecipes,
         ] = [
             new DisplayHeader(),
             new DisplaySearchFilter(),
-            new DisplayTags(),
             new DisplaySelects(this.recipes),
             new DisplayRecipes(this.recipes),
         ];
 
         displayHeader.createHeader();
         displaySearchFilter.createSearchFilter();
-        displayTags.createTags();
         displaySelects.createSelects();
         displayRecipes.createRecipes();
     }
