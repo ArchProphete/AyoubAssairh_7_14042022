@@ -5,11 +5,12 @@ export class DisplayTags {
         this.tagButton = document.getElementById('tag-button');
     }
 
-    // TODO faire le aria-label des tags
-    createTags(selectType, backgroundColor) {
-        this.elButton = createElementToCard('button', selectType, [
+    createTags(element, backgroundColor) {
+        this.elButton = createElementToCard('button', element, [
             { attribut: 'class', content: 'tag-button' },
             { attribut: 'tabindex', content: '3' },
+            { attribut: 'aria-label', content: `${element}` },
+            { attribut: 'title', content: `${element}` },
         ]);
 
         this.elIcon = createElementToCard('i', null, [

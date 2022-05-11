@@ -94,7 +94,7 @@ export class DisplaySelects {
             this.elUlApparels.appendChild(this.elLiApparels);
         });
 
-        // USTENCILES
+        // USTENSILES
         this.elUstensil = createElementToCard('input', null, [
             { attribut: 'id', content: 'ustensils-input' },
             { attribut: 'name', content: 'utensil' },
