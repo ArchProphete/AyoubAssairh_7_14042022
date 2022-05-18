@@ -48,22 +48,24 @@ export const filterInput = (characters, elements) => {
     }
 };
 
-/**
- * Display dropdown and close the others one
- * @param selectInput
- * @param toDisplay
- * @param firstToHide
- * @param SecondToHide
- */
-export const displayDropDownOnClick = (
-    selectInput,
-    toDisplay,
-    firstToHide,
-    SecondToHide
+export const deleteOverlayAndResizeSelect = (
+    elOverlay,
+    ingredientInput,
+    apparelInput,
+    ustensilInput,
+    elLabelIngredients,
+    elLabelApparel,
+    elLabelUstensils
 ) => {
-    selectInput.addEventListener('click', () => {
-        toDisplay.style.display = 'grid';
-        firstToHide.style.display = 'none';
-        SecondToHide.style.display = 'none';
+    elOverlay.addEventListener('click', () => {
+        ingredientInput.style.display = 'none';
+        apparelInput.style.display = 'none';
+        ustensilInput.style.display = 'none';
+
+        elLabelIngredients.style.width = '70px';
+        elLabelApparel.style.width = '70px';
+        elLabelUstensils.style.width = '70px';
+
+        elOverlay.style.display = 'none';
     });
 };

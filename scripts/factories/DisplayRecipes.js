@@ -17,9 +17,7 @@ export class DisplayRecipes {
             this.elLi = recipe.ingredients.map((ingredient) =>
                 createElementToCard(
                     'li',
-                    `${ingredient.ingredient ? ingredient.ingredient : ''}: ${
-                        ingredient.quantity ? ingredient.quantity : ''
-                    } ${ingredient.unit ? ingredient.unit : ''} `,
+                    `${ingredient.ingredient}: ${ingredient.quantity} ${ingredient.unit}`,
                     null
                 )
             );

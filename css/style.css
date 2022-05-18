@@ -68,26 +68,32 @@ body main #selects-input {
 }
 body main #selects-input #label-ingredients {
   grid-area: label-ingredients;
+  z-index: 9999;
 }
 body main #selects-input #label-apparels {
   grid-area: label-apparels;
+  z-index: 9999;
 }
 body main #selects-input #label-ustensils {
   grid-area: label-ustensils;
+  z-index: 9999;
 }
 body main #selects-input #ingredients-dropdown {
   grid-area: ingredients-dropdown;
+  z-index: 9999;
 }
 body main #selects-input #apparels-dropdown {
   grid-area: apparels-dropdown;
+  z-index: 9999;
 }
 body main #selects-input #ustensils-dropdown {
   grid-area: ustensils-dropdown;
+  z-index: 9999;
 }
 body main #selects-input #label-ingredients input, body main #selects-input #label-apparels input, body main #selects-input #label-ustensils input {
   border: none;
   border-radius: 5px;
-  height: 5vw;
+  height: 70px;
   padding: 34px;
   max-width: 11rem;
   color: white;
@@ -115,12 +121,17 @@ body main #selects-input #label-ingredients svg, body main #selects-input #label
   margin: -45px 0px 0px 140px;
   color: white;
 }
+body main #selects-input #label-ingredients, body main #selects-input #label-apparels, body main #selects-input #label-ustensils {
+  height: 70px;
+}
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   border-radius: 5px;
   width: 475px;
+  position: absolute;
+  margin-top: 65px;
 }
 body main #selects-input #ingredients-dropdown li, body main #selects-input #apparels-dropdown li, body main #selects-input #ustensils-dropdown li {
   border: none;
@@ -142,21 +153,37 @@ body main #selects-input #ingredients-dropdown li::first-letter, body main #sele
 }
 body main #selects-input #ingredients-dropdown {
   background-color: #3381F7;
+  display: grid;
+  z-index: 9999;
 }
 body main #selects-input #ingredients-dropdown li {
   background-color: #3381F7;
 }
 body main #selects-input #apparels-dropdown {
   background-color: #68D9A4;
+  display: grid;
+  z-index: 9999;
+  margin-left: 198px;
 }
 body main #selects-input #apparels-dropdown li {
   background-color: #68D9A4;
 }
 body main #selects-input #ustensils-dropdown {
   background-color: #ED6454;
+  display: grid;
+  z-index: 9999;
 }
 body main #selects-input #ustensils-dropdown li {
   background-color: #ED6454;
+}
+body main #selects-input .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  bottom: 0;
+  /* background: darkcyan; */
 }
 body main #label-recipes {
   display: grid;

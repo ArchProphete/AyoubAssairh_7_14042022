@@ -1,7 +1,7 @@
 import {
     createElementToCard,
     deleteDuplicateValue,
-    displayDropDownOnClick,
+    deleteOverlayAndResizeSelect,
 } from '../utils/utils.js';
 import { Filter } from '../utils/Filter.js';
 import { DisplayTags } from './DisplayTags.js';
@@ -143,30 +143,91 @@ export class DisplaySelects {
             this.elUlUstensils
         );
 
+        function createOverlay() {
+            return createElementToCard('div', null, [
+                {
+                    attribut: 'class',
+                    content: 'overlay',
+                },
+            ]);
+        }
+
         // Hide all dropdown
         this.elUlIngredients.style.display = 'none';
         this.elUlApparels.style.display = 'none';
         this.elUlUstensils.style.display = 'none';
 
-        // Display dropdown on click
-        displayDropDownOnClick(
-            this.elIngredients,
-            this.elUlIngredients,
-            this.elUlApparels,
-            this.elUlUstensils
-        );
-        displayDropDownOnClick(
-            this.elApparel,
-            this.elUlApparels,
-            this.elUlIngredients,
-            this.elUlUstensils
-        );
-        displayDropDownOnClick(
-            this.elUstensil,
-            this.elUlUstensils,
-            this.elUlApparels,
-            this.elUlIngredients
-        );
+        this.elIngredients.addEventListener('click', () => {
+            this.elUlIngredients.style.display = 'grid';
+            this.elUlApparels.style.display = 'none';
+            this.elUlUstensils.style.display = 'none';
+
+            this.elLabelIngredients.style.width = '475px';
+            this.elLabelAppareil.style.width = '70px';
+            this.elLabelUstensils.style.width = '70px';
+
+            const elOverlay = createOverlay();
+
+            this.selectInput.appendChild(elOverlay);
+
+            deleteOverlayAndResizeSelect(
+                elOverlay,
+                this.elUlIngredients,
+                this.elUlApparels,
+                this.elUlUstensils,
+                this.elLabelIngredients,
+                this.elLabelAppareil,
+                this.elLabelUstensils
+            );
+        });
+
+        this.elApparel.addEventListener('click', () => {
+            this.elUlApparels.style.display = 'grid';
+            this.elUlIngredients.style.display = 'none';
+            this.elUlUstensils.style.display = 'none';
+
+            this.elLabelIngredients.style.width = '70px';
+            this.elLabelAppareil.style.width = '475px';
+            this.elLabelUstensils.style.width = '70px';
+
+            const elOverlay = createOverlay();
+
+            this.selectInput.appendChild(elOverlay);
+
+            deleteOverlayAndResizeSelect(
+                elOverlay,
+                this.elUlIngredients,
+                this.elUlApparels,
+                this.elUlUstensils,
+                this.elLabelIngredients,
+                this.elLabelAppareil,
+                this.elLabelUstensils
+            );
+        });
+
+        this.elUstensil.addEventListener('click', () => {
+            this.elUlUstensils.style.display = 'grid';
+            this.elUlApparels.style.display = 'none';
+            this.elUlIngredients.style.display = 'none';
+
+            this.elLabelIngredients.style.width = '70px';
+            this.elLabelAppareil.style.width = '70px';
+            this.elLabelUstensils.style.width = '475px';
+
+            const elOverlay = createOverlay();
+
+            this.selectInput.appendChild(elOverlay);
+
+            deleteOverlayAndResizeSelect(
+                elOverlay,
+                this.elUlIngredients,
+                this.elUlApparels,
+                this.elUlUstensils,
+                this.elLabelIngredients,
+                this.elLabelAppareil,
+                this.elLabelUstensils
+            );
+        });
 
         // Call filters functions
         this.filter = new Filter();
@@ -177,6 +238,7 @@ export class DisplaySelects {
         // Create tags
         this.elUlIngredients.addEventListener('click', (e) => {
             const color = '#3381F7';
+            // TODO voir pour change title en dataset
             const ingredient = e.target.title;
             this.tag.createTags(ingredient, color);
         });

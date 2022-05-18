@@ -1,6 +1,8 @@
-import { createElementToCard } from '../utils/utils.js';
+import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
 
 export class DisplayTags {
+    arrayButton = [];
+    arrayValues = [];
     constructor() {
         this.tagButton = document.getElementById('tag-button');
     }
@@ -11,6 +13,7 @@ export class DisplayTags {
             { attribut: 'tabindex', content: '3' },
             { attribut: 'aria-label', content: `${element}` },
             { attribut: 'title', content: `${element}` },
+            { attribut: 'data-name', content: `${element}` },
         ]);
 
         this.elIcon = createElementToCard('i', null, [
@@ -21,11 +24,13 @@ export class DisplayTags {
         this.tagButton.append(this.elButton);
 
         this.elButton.style.backgroundColor = backgroundColor;
-    }
 
-    deleteTag() {
-        this.elButton.addEventListener('click', () => {
-            this.elButton.style.display = 'none';
+        this.arrayButton.push(this.elButton);
+
+        this.arrayButton.find((tag) => {
+            tag.addEventListener('click', () => {
+                tag.style.display = 'none';
+            });
         });
     }
 }
