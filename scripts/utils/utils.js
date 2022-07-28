@@ -45,6 +45,8 @@ export const filterInput = (characters, elements) => {
                 element.style.display = 'none';
             }
         });
+    } else {
+        // TODO Afficher toutes les recettes si - de 3 charactères
     }
 };
 

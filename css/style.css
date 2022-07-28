@@ -11,9 +11,10 @@ body #header a {
   justify-content: center;
 }
 body main {
-  display: grid;
-  row-gap: 10px;
   padding: 38px 100px 0 100px;
+}
+body main #search-filter {
+  padding-top: 25px;
 }
 body main #search-filter input {
   width: 100%;
@@ -35,6 +36,9 @@ body main #search-filter svg {
   position: absolute;
   font-size: 40px;
   margin: 15px -50px;
+}
+body main #tag-button {
+  padding-top: 25px;
 }
 body main #tag-button button {
   color: white;
@@ -59,35 +63,12 @@ body main #tag-button button svg {
   margin-left: 10px;
 }
 body main #selects-input {
+  padding-top: 25px;
   font-size: 18px;
-  display: grid;
-  grid-gap: 8rem;
-  grid-template-columns: 70px 70px 70px;
-  grid-template-areas: "label-ingredients label-apparels label-ustensils" "ingredients-dropdown . ." "apparels-dropdown . ." "ustensils-dropdown . .";
-  grid-row-gap: 0;
+  display: flex;
 }
-body main #selects-input #label-ingredients {
-  grid-area: label-ingredients;
-  z-index: 9999;
-}
-body main #selects-input #label-apparels {
-  grid-area: label-apparels;
-  z-index: 9999;
-}
-body main #selects-input #label-ustensils {
-  grid-area: label-ustensils;
-  z-index: 9999;
-}
-body main #selects-input #ingredients-dropdown {
-  grid-area: ingredients-dropdown;
-  z-index: 9999;
-}
-body main #selects-input #apparels-dropdown {
-  grid-area: apparels-dropdown;
-  z-index: 9999;
-}
-body main #selects-input #ustensils-dropdown {
-  grid-area: ustensils-dropdown;
+body main #selects-input #label-ingredients, body main #selects-input #label-apparels, body main #selects-input #label-ustensils,
+body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
   z-index: 9999;
 }
 body main #selects-input #label-ingredients input, body main #selects-input #label-apparels input, body main #selects-input #label-ustensils input {
@@ -118,11 +99,12 @@ body main #selects-input #label-ustensils, body main #selects-input #label-usten
 }
 body main #selects-input #label-ingredients svg, body main #selects-input #label-apparels svg, body main #selects-input #label-ustensils svg {
   position: absolute;
-  margin: -45px 0px 0px 140px;
   color: white;
+  top: 20px;
+  right: 20px;
 }
 body main #selects-input #label-ingredients, body main #selects-input #label-apparels, body main #selects-input #label-ustensils {
-  height: 70px;
+  position: relative;
 }
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
   display: grid;
@@ -172,6 +154,7 @@ body main #selects-input #ustensils-dropdown {
   background-color: #ED6454;
   display: grid;
   z-index: 9999;
+  margin-left: 396px;
 }
 body main #selects-input #ustensils-dropdown li {
   background-color: #ED6454;
@@ -186,6 +169,7 @@ body main #selects-input .overlay {
   /* background: darkcyan; */
 }
 body main #label-recipes {
+  padding-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 50px;

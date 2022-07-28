@@ -1,6 +1,6 @@
 import { createElementToCard } from '../utils/utils.js';
 
-export class DisplayHeader {
+class DisplayHeader {
     constructor() {
         this.header = document.getElementById('header');
     }
@@ -22,3 +22,5 @@ export class DisplayHeader {
         this.header.append(this.elA);
     }
 }
+
+export { DisplayHeader };

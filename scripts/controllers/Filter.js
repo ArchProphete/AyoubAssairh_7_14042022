@@ -1,8 +1,8 @@
-import { filterInput } from './utils.js';
+import { filterInput } from '../utils/utils.js';
 
-export class Filter {
+class Filter {
     constructor() {
-        this.mainSearchInput = document.getElementById('search-filter');
+        this.mainInput = document.getElementById('search-filter');
         this.ingredientSearchInput =
             document.getElementById('ingredients-input');
         this.apparelsSearchInput = document.getElementById('apparels-input');
@@ -11,10 +11,28 @@ export class Filter {
 
     // Filtre les recettes selon ce que l'utilisateur rentre dans le champ principal
     getRecipes() {
-        this.mainSearchInput.addEventListener('keyup', (e) => {
-            this.searchLetters = e.target.value;
-            this.searchResult = document.querySelectorAll('.search-result');
-            filterInput(this.searchLetters, this.searchResult);
+        this.mainInput.addEventListener('keyup', (e) => {
+            // Récupère les articles recette
+            this.recipesArticles = document.querySelectorAll('.recipe-article');
+            // Récupère les touches
+            this.searchKeys = e.target.value;
+            // Boucle sur les articles
+            // Compare chaque élément
+            if (this.searchKeys.length > 2) {
+                this.recipesArticles.forEach((element) => {
+                    if (
+                        element.textContent
+                            .toLowerCase()
+                            .includes(this.searchKeys)
+                    ) {
+                        // Travailler avec les tableaux plutot que le css
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            } else {
+            }
         });
     }
 
@@ -25,7 +43,19 @@ export class Filter {
             this.ingredientsResult = document.querySelectorAll(
                 '.dropdown-ingredients'
             );
-            filterInput(this.searchLetters, this.ingredientsResult);
+            if (this.searchLetters.length > 2) {
+                this.ingredientsResult.forEach((element) => {
+                    if (
+                        element.textContent
+                            .toLowerCase()
+                            .includes(this.searchLetters)
+                    ) {
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                });
+            }
         });
     }
 
@@ -35,7 +65,6 @@ export class Filter {
             this.searchLetters = e.target.value;
             this.apparelsResult =
                 document.querySelectorAll('.dropdown-apparels');
-            filterInput(this.searchLetters, this.apparelsResult);
         });
     }
 
@@ -50,3 +79,5 @@ export class Filter {
         });
     }
 }
+
+export { Filter };

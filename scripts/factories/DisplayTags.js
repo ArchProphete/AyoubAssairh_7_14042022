@@ -1,8 +1,9 @@
 import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
 
-export class DisplayTags {
+class DisplayTags {
     arrayButton = [];
-    arrayValues = [];
+    test = [];
+    ingredient = [];
     constructor() {
         this.tagButton = document.getElementById('tag-button');
     }
@@ -21,16 +22,23 @@ export class DisplayTags {
         ]);
 
         this.elButton.append(this.elIcon);
-        this.tagButton.append(this.elButton);
+        this.test.push(this.elButton);
+        deleteDuplicateValue(this.test);
 
-        this.elButton.style.backgroundColor = backgroundColor;
+        this.tagButton.append(...this.test);
 
         this.arrayButton.push(this.elButton);
 
         this.arrayButton.find((tag) => {
-            tag.addEventListener('click', () => {
+            tag.addEventListener('click', (e) => {
+                this.ingredient.push(e.target.dataset.name);
+                console.log(this.ingredient);
                 tag.style.display = 'none';
             });
         });
+
+        this.elButton.style.backgroundColor = backgroundColor;
     }
 }
+
+export { DisplayTags };

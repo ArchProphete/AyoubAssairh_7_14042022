@@ -1,6 +1,6 @@
 import { createElementToCard } from '../utils/utils.js';
 
-export class DisplaySearchFilter {
+class DisplaySearchFilter {
     constructor() {
         this.searchFilter = document.getElementById('search-filter');
     }
@@ -24,3 +24,5 @@ export class DisplaySearchFilter {
         this.searchFilter.appendChild(this.elLabel);
     }
 }
+
+export { DisplaySearchFilter };
