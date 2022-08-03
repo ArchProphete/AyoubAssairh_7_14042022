@@ -18,40 +18,38 @@ class View extends Observable {
     }
 
     render({ recipes }) {
-        const displayHeader = new DisplayHeader();
-        const displaySearchFilter = new DisplaySearchFilter();
-        displayHeader.createHeader();
-        displaySearchFilter.createSearchFilter();
+        new DisplayHeader().createHeader();
+        new DisplaySearchFilter().createSearchFilter();
 
+        // Loop to fetch each data
         recipes.forEach((recipe) => {
             const displayRecipes = new DisplayRecipes(recipe);
+            // Destructuring recipe
+            const { appliance, ingredients, ustensils } = recipe;
             displayRecipes.createRecipe();
-
-            recipe.ingredients.forEach((ingredient) => {
+            // Push data in each arrays
+            ingredients.forEach((ingredient) => {
                 this.allIngredients.push(ingredient.ingredient);
             });
-
-            this.allApparels.push(recipe.appliance);
-            this.allUstensils.push(...recipe.ustensils);
+            this.allApparels.push(appliance);
+            this.allUstensils.push(...ustensils);
         });
 
+        // Delete duplicate data for clean arrays and stock it same arrays
         this.allIngredients = deleteDuplicateValue(this.allIngredients);
         this.allUstensils = deleteDuplicateValue(this.allUstensils);
         this.allApparels = deleteDuplicateValue(this.allApparels);
 
-        this.allIngredients.forEach((ingredient) => {
-            new DisplayDropdownIngredients(
-                ingredient
-            ).createSelectIngredients();
-        });
-        this.allApparels.forEach((apparel) =>
-            new DisplayDropDownAppliances(apparel).createSelectAppliances()
-        );
-        this.allUstensils.forEach((ustensil) =>
-            new DisplayDropdownUstensils(ustensil).createSelectUstensils()
-        );
+        // Transfer data lowerCased for each Dropdown factories
+        new DisplayDropdownIngredients(
+            this.allIngredients
+        ).createSelectIngredients();
 
-        // Creer des tableaux et bouclé avec factories
+        new DisplayDropDownAppliances(
+            this.allApparels
+        ).createSelectAppliances();
+
+        new DisplayDropdownUstensils(this.allUstensils).createSelectUstensils();
     }
 }
 

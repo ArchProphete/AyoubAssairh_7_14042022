@@ -1,10 +1,9 @@
-import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
+import { createElementToCard } from '../utils/utils.js';
 
 class DisplayDropdownUstensils {
-    ustensils = [];
-
     constructor(ustensil) {
         this.ustensils = ustensil;
+        this.selectInput = document.getElementById('selects-input');
     }
     createSelectUstensils() {
         // USTENSILES
@@ -34,13 +33,18 @@ class DisplayDropdownUstensils {
             { attribut: 'id', content: 'ustensils-dropdown' },
         ]);
 
-        this.elLiUstensil = createElementToCard('li', `${this.ustensils}`, [
-            { attribut: 'class', content: 'dropdown-ustensils' },
-            { attribut: 'title', content: `${this.ustensils}` },
-            { attribut: 'data-title', content: `${this.ustensils}` },
-        ]);
-        this.elUlUstensils.appendChild(this.elLiUstensil);
+        this.ustensils.map((ustensil) => {
+            this.elLiUstensil = createElementToCard('li', `${ustensil}`, [
+                { attribut: 'class', content: 'dropdown-ustensils' },
+                { attribut: 'title', content: `${ustensil}` },
+                { attribut: 'data-title', content: `${ustensil}` },
+            ]);
+            this.elUlUstensils.appendChild(this.elLiUstensil);
+        });
+
+        this.elDivUstensils.append(this.elLabelUstensils, this.elUlUstensils);
+
+        this.selectInput.appendChild(this.elDivUstensils);
     }
 }
-
 export { DisplayDropdownUstensils };

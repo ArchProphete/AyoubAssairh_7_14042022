@@ -1,9 +1,9 @@
-import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
+import { createElementToCard } from '../utils/utils.js';
 
 class DisplayDropdownIngredients {
-    allIngredient = [];
     constructor(ingredient) {
         this.ingredient = ingredient;
+        this.selectInput = document.getElementById('selects-input');
     }
 
     createSelectIngredients() {
@@ -28,28 +28,26 @@ class DisplayDropdownIngredients {
             { attribut: 'id', content: 'label-ingredients' },
         ]);
 
-        this.elDivIngredients.append(
-            this.elLabelIngredients,
-            this.elIngredients
-        );
-
         this.elUlIngredients = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ingredients-dropdown' },
         ]);
 
-        this.allIngredient.push(this.ingredient.toLowerCase());
-
-        this.uniqIngredient = deleteDuplicateValue(this.ingredient);
-
-        this.uniqIngredient.map((ingredient) => {
+        this.ingredient.map((ingredient) => {
             this.elLiIngredients = createElementToCard('li', `${ingredient}`, [
                 { attribut: 'class', content: 'dropdown-ingredients' },
                 { attribut: 'title', content: `${ingredient}` },
                 { attribut: 'data-title', content: `${ingredient}` },
                 { attribut: 'id', content: `${ingredient}` },
             ]);
-            this.elUlIngredients.appendChild(this.elLiIngredients);
+            this.elUlIngredients.append(this.elLiIngredients);
         });
+
+        this.elDivIngredients.append(
+            this.elLabelIngredients,
+            this.elUlIngredients
+        );
+
+        this.selectInput.appendChild(this.elDivIngredients);
     }
 }
 

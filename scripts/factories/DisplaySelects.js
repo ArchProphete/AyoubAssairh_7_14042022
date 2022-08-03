@@ -18,16 +18,6 @@ class DisplaySelects {
     }
 
     createSelects() {
-        // FINAL APPENDS
-        this.selectInput.append(
-            this.elDivIngredients,
-            this.elDivApparels,
-            this.elDivUstensils,
-            this.elUlIngredients,
-            this.elUlApparels,
-            this.elUlUstensils
-        );
-
         // TODO Faire en sorte de n'en créé qu'un
         //  et de le mettre en display none
         function createOverlay() {

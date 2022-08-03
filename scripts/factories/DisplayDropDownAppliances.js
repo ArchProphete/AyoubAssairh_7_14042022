@@ -1,10 +1,9 @@
 import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
 
 class DisplayDropDownAppliances {
-    apparels = [];
-
     constructor(apparel) {
         this.apparel = apparel;
+        this.selectInput = document.getElementById('selects-input');
     }
 
     createSelectAppliances() {
@@ -35,12 +34,18 @@ class DisplayDropDownAppliances {
             { attribut: 'id', content: 'apparels-dropdown' },
         ]);
 
-        this.elLiApparels = createElementToCard('li', `${this.apparel}`, [
-            { attribut: 'class', content: 'dropdown-apparels' },
-            { attribut: 'title', content: `${this.apparel}` },
-            { attribut: 'data-title', content: `${this.apparel}` },
-        ]);
-        this.elUlApparels.appendChild(this.elLiApparels);
+        this.apparel.map((apparel) => {
+            this.elLiApparels = createElementToCard('li', `${apparel}`, [
+                { attribut: 'class', content: 'dropdown-apparels' },
+                { attribut: 'title', content: `${apparel}` },
+                { attribut: 'data-title', content: `${apparel}` },
+            ]);
+            this.elUlApparels.appendChild(this.elLiApparels);
+        });
+
+        this.elDivApparels.append(this.elLabelAppareil, this.elUlApparels);
+
+        this.selectInput.appendChild(this.elDivApparels);
     }
 }
 
