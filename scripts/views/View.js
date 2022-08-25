@@ -1,3 +1,4 @@
+import { GetElementId } from '../utils/GetElement.js';
 import Observable from '../utils/Observable.js';
 import {
     DisplayDropDownAppliances,
@@ -6,8 +7,13 @@ import {
     DisplayHeader,
     DisplayRecipes,
     DisplaySearchFilter,
+    DisplayTags,
 } from '../factories/factories.js';
-import { deleteDuplicateValue } from '../utils/utils.js';
+import {
+    deleteDuplicateValue,
+    displayDropDown,
+    expandWidthDropDown,
+} from '../utils/utils.js';
 
 class View extends Observable {
     constructor() {
@@ -15,11 +21,20 @@ class View extends Observable {
         this.allIngredients = [];
         this.allUstensils = [];
         this.allApparels = [];
+
+        this.tag = new DisplayTags();
+        new DisplaySearchFilter().createSearchFilter();
+        this.tagsIngredients = [];
     }
 
-    render({ recipes }) {
+    render({ recipes, tagIngredients }) {
+        this.allIngredients = [];
+        this.allUstensils = [];
+        this.allApparels = [];
+        GetElementId.labelRecipes().innerHTML = '';
+        GetElementId.header().innerHTML = '';
+        GetElementId.selectsInput().innerHTML = '';
         new DisplayHeader().createHeader();
-        new DisplaySearchFilter().createSearchFilter();
 
         // Loop to fetch each data
         recipes.forEach((recipe) => {
@@ -50,6 +65,59 @@ class View extends Observable {
         ).createSelectAppliances();
 
         new DisplayDropdownUstensils(this.allUstensils).createSelectUstensils();
+
+        this.eventListener();
+    }
+
+    eventListener() {
+        // Transmets les valeurs à mon observable
+        GetElementId.searchBar().addEventListener('input', (e) => {
+            // recupérer valeur input search bar
+            const value = e.target.value;
+            this.notify('searchBar', {
+                value,
+            });
+        });
+
+        GetElementId.ingredientsInput().addEventListener('click', () => {
+            displayDropDown('ingredients');
+            expandWidthDropDown('ingredients');
+        });
+
+        GetElementId.apparelsInput().addEventListener('click', () => {
+            displayDropDown('apparels');
+            expandWidthDropDown('apparels');
+        });
+
+        GetElementId.ustensilsInput().addEventListener('click', () => {
+            displayDropDown('ustensils');
+            expandWidthDropDown('ustensils');
+        });
+
+        // Create tags
+        GetElementId.ingredientsDropdown().addEventListener('click', (e) => {
+            const color = '#3381F7';
+            const ingredient = e.target.dataset.title;
+            this.tag.createTags(ingredient, color);
+            // Récupère le titre et le pousse dans un tableau
+            this.tagsIngredients.push(ingredient);
+            // Retire du tableau global l'élément séléctionné
+            this.uniqIngredient = this.uniqIngredient.filter(
+                (el) => !this.tagsIngredients.includes(el)
+            );
+        });
+
+        GetElementId.apparelsDropdown().addEventListener('click', (e) => {
+            const color = '#68D9A4';
+            const apparel = e.target.dataset.title;
+            this.tag.createTags(apparel, color);
+        });
+
+        GetElementId.ustensilsDropdown().addEventListener('click', (e) => {
+            const color = '#ED6454';
+            const ustensil = e.target.dataset.title;
+            this.tag.createTags(ustensil, color);
+        });
     }
 }
 

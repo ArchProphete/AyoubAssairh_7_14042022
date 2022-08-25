@@ -5,7 +5,7 @@ class Observable {
     }
 
     // Add an observer to this.observers.
-    addObserver(name, observer) {
+    subscribe(name, observer) {
         let listeners = this.observers.get(name);
 
         if (!listeners) {
@@ -21,7 +21,7 @@ class Observable {
 
     // Remove an observer from this.observers.
     // TODO Changer comme le addObserver
-    removeObserver(observer) {
+    removeObserver(name, observer) {
         const removeIndex = this.observers.findIndex((obs) => {
             return observer === obs;
         });
@@ -33,17 +33,36 @@ class Observable {
 
     // Loops over this.observers and calls the update method on each observer.
     // The state object will call this method everytime it is updated.
-    notify(name, data) {
+    notify(name, value) {
         console.log(name);
-        console.log(data);
+        console.log(value);
 
         let listeners = this.observers.get(name);
-
         if (!listeners) {
+            console.log(listeners);
             return;
         }
-        listeners.forEach((observer) => observer(data));
+        listeners.forEach((observer) => {
+            observer(value);
+        });
     }
+
+    prototype = {
+        subscribe: function (fn) {
+            this.observers.push(fn);
+            console.log(this.observers);
+        },
+        unsubscribe: function (fnToRemove) {
+            this.observers = this.observers.filter((fn) => {
+                if (fn !== fnToRemove) return fn;
+            });
+        },
+        fire: function () {
+            this.observers.forEach((fn) => {
+                fn.call();
+            });
+        },
+    };
 }
 
 export default Observable;

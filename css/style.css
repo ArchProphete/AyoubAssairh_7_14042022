@@ -107,7 +107,7 @@ body main #selects-input #label-ingredients, body main #selects-input #label-app
   position: relative;
 }
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
-  display: grid;
+  display: none;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   border-radius: 5px;
@@ -135,7 +135,6 @@ body main #selects-input #ingredients-dropdown li::first-letter, body main #sele
 }
 body main #selects-input #ingredients-dropdown {
   background-color: #3381F7;
-  display: grid;
   z-index: 9999;
 }
 body main #selects-input #ingredients-dropdown li {
@@ -143,7 +142,6 @@ body main #selects-input #ingredients-dropdown li {
 }
 body main #selects-input #apparels-dropdown {
   background-color: #68D9A4;
-  display: grid;
   z-index: 9999;
   margin-left: 198px;
 }
@@ -152,7 +150,6 @@ body main #selects-input #apparels-dropdown li {
 }
 body main #selects-input #ustensils-dropdown {
   background-color: #ED6454;
-  display: grid;
   z-index: 9999;
   margin-left: 396px;
 }

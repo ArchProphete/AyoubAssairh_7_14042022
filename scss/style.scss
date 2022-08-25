@@ -116,7 +116,7 @@ body {
             }
 
             #ingredients-dropdown, #apparels-dropdown, #ustensils-dropdown {
-                display: grid;
+                display: none;
                 grid-template-columns: 1fr 1fr 1fr;
                 padding: 20px;
                 border-radius: 5px;
@@ -146,7 +146,6 @@ body {
 
             #ingredients-dropdown {
                 background-color: $primary-color;
-                display: grid;
                 z-index: 9999;
                 li {
                     background-color: $primary-color;
@@ -155,7 +154,6 @@ body {
 
             #apparels-dropdown {
                 background-color: $secondary-color;
-                display: grid;
                 z-index: 9999;
                 margin-left: 198px;
 
@@ -167,7 +165,6 @@ body {
 
             #ustensils-dropdown {
                 background-color: $tertiary-color;
-                display: grid;
                 z-index: 9999;
                 margin-left: 396px;
                 li {

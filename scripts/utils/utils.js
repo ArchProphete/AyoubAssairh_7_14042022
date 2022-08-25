@@ -3,6 +3,8 @@
  * @param element
  * @param attr
  */
+import { GetElementId } from './GetElement.js';
+
 export const setAttr = (element, attr) => {
     attr.map((val) => element.setAttribute(val.attribut, val.content));
 };
@@ -50,6 +52,15 @@ export const filterInput = (characters, elements) => {
     }
 };
 
+export const createOverlay = () => {
+    return createElementToCard('div', null, [
+        {
+            attribut: 'class',
+            content: 'overlay',
+        },
+    ]);
+};
+
 export const deleteOverlayAndResizeSelect = (
     elOverlay,
     ingredientInput,
@@ -70,4 +81,48 @@ export const deleteOverlayAndResizeSelect = (
 
         elOverlay.style.display = 'none';
     });
+};
+
+export const displayDropDown = (dropdownToDisplay) => {
+    switch (dropdownToDisplay) {
+        case 'ingredients':
+            GetElementId.ingredientsDropdown().style.display = 'grid';
+            GetElementId.apparelsDropdown().style.display = 'none';
+            GetElementId.ustensilsDropdown().style.display = 'none';
+            break;
+        case 'apparels':
+            GetElementId.apparelsDropdown().style.display = 'grid';
+            GetElementId.ingredientsDropdown().style.display = 'none';
+            GetElementId.ustensilsDropdown().style.display = 'none';
+            break;
+        case 'ustensils':
+            GetElementId.ustensilsDropdown().style.display = 'grid';
+            GetElementId.apparelsDropdown().style.display = 'none';
+            GetElementId.ingredientsDropdown().style.display = 'none';
+            break;
+        default:
+            break;
+    }
+};
+
+export const expandWidthDropDown = (dropDownToExpand) => {
+    switch (dropDownToExpand) {
+        case 'ingredients':
+            GetElementId.labelIngredients().style.width = '475px';
+            GetElementId.labelApparels().style.width = '70px';
+            GetElementId.labelUstensils().style.width = '70px';
+            break;
+        case 'apparels':
+            GetElementId.labelIngredients().style.width = '70px';
+            GetElementId.labelApparels().style.width = '475px';
+            GetElementId.labelUstensils().style.width = '70px';
+            break;
+        case 'ustensils':
+            GetElementId.labelUstensils().style.width = '70px';
+            GetElementId.labelApparels().style.width = '70px';
+            GetElementId.labelUstensils().style.width = '475px';
+            break;
+        default:
+            break;
+    }
 };
