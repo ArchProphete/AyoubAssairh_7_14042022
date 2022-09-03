@@ -1,12 +1,11 @@
 import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplayTags {
     arrayButton = [];
     test = [];
     ingredient = [];
-    constructor() {
-        this.tagButton = document.getElementById('tag-button');
-    }
+    constructor() {}
 
     createTags(element, backgroundColor) {
         this.elButton = createElementToCard('button', element, [
@@ -25,7 +24,7 @@ class DisplayTags {
         this.test.push(this.elButton);
         deleteDuplicateValue(this.test);
 
-        this.tagButton.append(...this.test);
+        GetElementId.tagButton().append(...this.test);
 
         this.arrayButton.push(this.elButton);
 

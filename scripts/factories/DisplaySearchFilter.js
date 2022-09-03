@@ -1,9 +1,8 @@
 import { createElementToCard } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplaySearchFilter {
-    constructor() {
-        this.searchFilter = document.getElementById('search-filter');
-    }
+    constructor() {}
 
     createSearchFilter() {
         this.elInput = createElementToCard('input', null, [
@@ -21,7 +20,7 @@ class DisplaySearchFilter {
         this.elLabel = createElementToCard('label', null, null);
 
         this.elLabel.append(this.elInput, this.elIcon);
-        this.searchFilter.appendChild(this.elLabel);
+        GetElementId.searchBar().appendChild(this.elLabel);
     }
 }
 

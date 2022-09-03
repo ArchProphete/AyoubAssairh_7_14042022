@@ -1,9 +1,9 @@
-import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
+import { createElementToCard } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplayDropDownAppliances {
     constructor(apparel) {
         this.apparel = apparel;
-        this.selectInput = document.getElementById('selects-input');
     }
 
     createSelectAppliances() {
@@ -45,7 +45,7 @@ class DisplayDropDownAppliances {
 
         this.elDivApparels.append(this.elLabelAppareil, this.elUlApparels);
 
-        this.selectInput.appendChild(this.elDivApparels);
+        GetElementId.selectsInput().appendChild(this.elDivApparels);
     }
 }
 

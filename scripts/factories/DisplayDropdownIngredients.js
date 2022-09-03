@@ -1,9 +1,9 @@
 import { createElementToCard } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplayDropdownIngredients {
     constructor(ingredient) {
         this.ingredient = ingredient;
-        this.selectInput = document.getElementById('selects-input');
     }
 
     createSelectIngredients() {
@@ -47,7 +47,7 @@ class DisplayDropdownIngredients {
             this.elUlIngredients
         );
 
-        this.selectInput.appendChild(this.elDivIngredients);
+        GetElementId.selectsInput().appendChild(this.elDivIngredients);
     }
 }
 

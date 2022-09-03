@@ -1,4 +1,4 @@
-import { GetElementId } from '../utils/GetElement.js';
+import { GetElementId } from '../utils/GetElementById.js';
 import Observable from '../utils/Observable.js';
 import {
     DisplayDropDownAppliances,

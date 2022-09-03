@@ -1,10 +1,10 @@
+import { GetElementId } from './GetElementById.js';
+
 /**
  * Set attribute and his content to an element
  * @param element
  * @param attr
  */
-import { GetElementId } from './GetElement.js';
-
 export const setAttr = (element, attr) => {
     attr.map((val) => element.setAttribute(val.attribut, val.content));
 };
@@ -36,20 +36,6 @@ export const truncate = (input) => {
 
 export const deleteDuplicateValue = (array) => {
     return [...new Set(array)];
-};
-
-export const filterInput = (characters, elements) => {
-    if (characters.length > 2) {
-        elements.forEach((element) => {
-            if (element.textContent.toLowerCase().includes(characters)) {
-                element.style.display = 'block';
-            } else {
-                element.style.display = 'none';
-            }
-        });
-    } else {
-        // TODO Afficher toutes les recettes si - de 3 charactères
-    }
 };
 
 export const createOverlay = () => {

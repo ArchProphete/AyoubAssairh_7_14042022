@@ -1,9 +1,9 @@
 import { createElementToCard, truncate } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplayRecipes {
     constructor(recipe) {
         this.recipe = recipe;
-        this.labelRecipesDiv = document.getElementById('label-recipes');
     }
 
     createRecipe() {
@@ -45,7 +45,7 @@ class DisplayRecipes {
         ]);
 
         this.elArticle.appendChild(this.elDivFigure);
-        this.labelRecipesDiv.appendChild(this.elArticle);
+        GetElementId.labelRecipes().appendChild(this.elArticle);
     }
 }
 

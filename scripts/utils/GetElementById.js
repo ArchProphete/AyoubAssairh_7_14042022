@@ -55,6 +55,10 @@ class GetElementId {
     static labelUstensils() {
         return document.getElementById('label-ustensils');
     }
+
+    static tagButton() {
+        return document.getElementById('tag-button');
+    }
 }
 
 export { GetElementId };

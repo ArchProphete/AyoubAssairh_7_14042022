@@ -1,9 +1,8 @@
 import { createElementToCard } from '../utils/utils.js';
+import { GetElementId } from '../utils/GetElementById.js';
 
 class DisplayHeader {
-    constructor() {
-        this.header = document.getElementById('header');
-    }
+    constructor() {}
 
     createHeader() {
         this.elLogo = createElementToCard('img', null, [
@@ -19,7 +18,7 @@ class DisplayHeader {
         ]);
 
         this.elA.appendChild(this.elLogo);
-        this.header.append(this.elA);
+        GetElementId.header().append(this.elA);
     }
 }
 
