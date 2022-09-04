@@ -94,19 +94,19 @@ export const displayDropDown = (dropdownToDisplay) => {
 export const expandWidthDropDown = (dropDownToExpand) => {
     switch (dropDownToExpand) {
         case 'ingredients':
-            GetElementId.labelIngredients().style.width = '475px';
-            GetElementId.labelApparels().style.width = '70px';
-            GetElementId.labelUstensils().style.width = '70px';
+            GetElementId.divIngredients().style.width = '475px';
+            GetElementId.divApparels().style.width = '70px';
+            GetElementId.divUstensils().style.width = '70px';
             break;
         case 'apparels':
-            GetElementId.labelIngredients().style.width = '70px';
-            GetElementId.labelApparels().style.width = '475px';
-            GetElementId.labelUstensils().style.width = '70px';
+            GetElementId.divIngredients().style.width = '70px';
+            GetElementId.divApparels().style.width = '475px';
+            GetElementId.divUstensils().style.width = '70px';
             break;
         case 'ustensils':
-            GetElementId.labelUstensils().style.width = '70px';
-            GetElementId.labelApparels().style.width = '70px';
-            GetElementId.labelUstensils().style.width = '475px';
+            GetElementId.divUstensils().style.width = '70px';
+            GetElementId.divApparels().style.width = '70px';
+            GetElementId.divUstensils().style.width = '475px';
             break;
         default:
             break;

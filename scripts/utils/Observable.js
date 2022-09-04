@@ -14,9 +14,9 @@ class Observable {
         }
         listeners.push(observer);
 
-        //this.observers.push(observer);
-        console.log(observer);
-        console.log(this.observers);
+        // this.observers.push(observer);
+        // console.log(observer);
+        // console.log(this.observers);
     }
 
     // Remove an observer from this.observers.
@@ -34,8 +34,8 @@ class Observable {
     // Loops over this.observers and calls the update method on each observer.
     // The state object will call this method everytime it is updated.
     notify(name, value) {
-        console.log(name);
-        console.log(value);
+        // console.log(name);
+        // console.log(value);
 
         let listeners = this.observers.get(name);
         if (!listeners) {

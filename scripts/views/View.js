@@ -27,13 +27,16 @@ class View extends Observable {
         this.tagsIngredients = [];
     }
 
-    render({ recipes, tagIngredients }) {
+    render({ recipes, ingredients }) {
+        console.log(ingredients);
         this.allIngredients = [];
         this.allUstensils = [];
         this.allApparels = [];
+
         GetElementId.labelRecipes().innerHTML = '';
         GetElementId.header().innerHTML = '';
-        GetElementId.selectsInput().innerHTML = '';
+        GetElementId.dropdownsInput().innerHTML = '';
+
         new DisplayHeader().createHeader();
 
         // Loop to fetch each data
@@ -73,9 +76,15 @@ class View extends Observable {
         // Transmets les valeurs à mon observable
         GetElementId.searchBar().addEventListener('input', (e) => {
             // recupérer valeur input search bar
-            const value = e.target.value;
             this.notify('searchBar', {
-                value,
+                value: e.target.value,
+            });
+        });
+
+        GetElementId.ingredientsInput().addEventListener('input', (e) => {
+            this.notify('ingredientsBar', {
+                value: e.target.value,
+                allIngredients: this.allIngredients,
             });
         });
 

@@ -2,14 +2,18 @@ class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
+
         model.subscribe('change', (data) => {
             console.log('RENDERING');
             view.render(data);
         });
 
         view.subscribe('searchBar', ({ value }) => {
-            console.log('SEARCHBAR');
             model.searchFilter(value);
+        });
+
+        view.subscribe('ingredientsBar', ({ value, allIngredients }) => {
+            model.searchIngredients(value, allIngredients);
         });
 
         /*

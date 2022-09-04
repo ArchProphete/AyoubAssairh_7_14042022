@@ -9,7 +9,7 @@ class GetElementId {
         return document.getElementById('header');
     }
 
-    static selectsInput() {
+    static dropdownsInput() {
         return document.getElementById('selects-input');
     }
 
@@ -44,18 +44,19 @@ class GetElementId {
     }
 
     // LABELS
-    static labelIngredients() {
-        return document.getElementById('label-ingredients');
+    static divIngredients() {
+        return document.getElementById('div-ingredients');
     }
 
-    static labelApparels() {
-        return document.getElementById('label-apparels');
+    static divApparels() {
+        return document.getElementById('div-apparels');
     }
 
-    static labelUstensils() {
-        return document.getElementById('label-ustensils');
+    static divUstensils() {
+        return document.getElementById('div-ustensils');
     }
 
+    // TAG BUTTON
     static tagButton() {
         return document.getElementById('tag-button');
     }

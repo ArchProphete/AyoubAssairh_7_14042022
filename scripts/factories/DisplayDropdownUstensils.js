@@ -5,6 +5,7 @@ class DisplayDropdownUstensils {
     constructor(ustensil) {
         this.ustensils = ustensil;
     }
+
     createSelectUstensils() {
         // USTENSILES
         this.elUstensil = createElementToCard('input', null, [
@@ -19,15 +20,15 @@ class DisplayDropdownUstensils {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
-        this.elLabelUstensils = createElementToCard('label', null, []);
+        this.elLabelUstensils = createElementToCard('label', null, [
+            { attribut: 'id', content: 'label-ustensils' },
+        ]);
 
         this.elLabelUstensils.append(this.elUstensil, this.elIconU);
 
         this.elDivUstensils = createElementToCard('div', null, [
-            { attribut: 'id', content: 'label-ustensils' },
+            { attribut: 'id', content: 'div-ustensils' },
         ]);
-
-        this.elDivUstensils.append(this.elLabelUstensils, this.elUstensil);
 
         this.elUlUstensils = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ustensils-dropdown' },
@@ -38,13 +39,15 @@ class DisplayDropdownUstensils {
                 { attribut: 'class', content: 'dropdown-ustensils' },
                 { attribut: 'title', content: `${ustensil}` },
                 { attribut: 'data-title', content: `${ustensil}` },
+                { attribut: 'id', content: `${ustensil}` },
             ]);
             this.elUlUstensils.appendChild(this.elLiUstensil);
         });
 
         this.elDivUstensils.append(this.elLabelUstensils, this.elUlUstensils);
 
-        GetElementId.selectsInput().appendChild(this.elDivUstensils);
+        GetElementId.dropdownsInput().appendChild(this.elDivUstensils);
     }
 }
+
 export { DisplayDropdownUstensils };

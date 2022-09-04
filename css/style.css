@@ -67,11 +67,11 @@ body main #selects-input {
   font-size: 18px;
   display: flex;
 }
-body main #selects-input #label-ingredients, body main #selects-input #label-apparels, body main #selects-input #label-ustensils,
+body main #selects-input #div-ingredients, body main #selects-input #div-apparels, body main #selects-input #div-ustensils,
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
   z-index: 9999;
 }
-body main #selects-input #label-ingredients input, body main #selects-input #label-apparels input, body main #selects-input #label-ustensils input {
+body main #selects-input #div-ingredients input, body main #selects-input #div-apparels input, body main #selects-input #div-ustensils input {
   border: none;
   border-radius: 5px;
   height: 70px;
@@ -79,31 +79,31 @@ body main #selects-input #label-ingredients input, body main #selects-input #lab
   max-width: 11rem;
   color: white;
 }
-body main #selects-input #label-ingredients input::placeholder, body main #selects-input #label-apparels input::placeholder, body main #selects-input #label-ustensils input::placeholder {
+body main #selects-input #div-ingredients input::placeholder, body main #selects-input #div-apparels input::placeholder, body main #selects-input #div-ustensils input::placeholder {
   color: white;
 }
-body main #selects-input #label-ingredients input:focus, body main #selects-input #label-apparels input:focus, body main #selects-input #label-ustensils input:focus {
+body main #selects-input #div-ingredients input:focus, body main #selects-input #div-apparels input:focus, body main #selects-input #div-ustensils input:focus {
   outline: none;
 }
-body main #selects-input #label-ingredients, body main #selects-input #label-ingredients input {
+body main #selects-input #div-ingredients, body main #selects-input #div-ingredients input {
   background-color: #3381F7;
   border-radius: 5px;
 }
-body main #selects-input #label-apparels, body main #selects-input #label-apparels input {
+body main #selects-input #div-apparels, body main #selects-input #div-apparels input {
   background-color: #68D9A4;
   border-radius: 5px;
 }
-body main #selects-input #label-ustensils, body main #selects-input #label-ustensils input {
+body main #selects-input #div-ustensils, body main #selects-input #div-ustensils input {
   background-color: #ED6454;
   border-radius: 5px;
 }
-body main #selects-input #label-ingredients svg, body main #selects-input #label-apparels svg, body main #selects-input #label-ustensils svg {
+body main #selects-input #div-ingredients svg, body main #selects-input #div-apparels svg, body main #selects-input #div-ustensils svg {
   position: absolute;
   color: white;
   top: 20px;
   right: 20px;
 }
-body main #selects-input #label-ingredients, body main #selects-input #label-apparels, body main #selects-input #label-ustensils {
+body main #selects-input #div-ingredients, body main #selects-input #div-apparels, body main #selects-input #div-ustensils {
   position: relative;
 }
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {

@@ -44,18 +44,23 @@ class Model extends Observable {
         }
     }
 
-    searchIngredientsDropdown(ingredient) {
+    searchIngredients(value, allIngredients) {
         this.filteredIngredientsDropdown = [];
-        this.recipes.forEach((recipe) => {
-            const { ingredients } = recipe;
-            console.log(ingredients);
+
+        allIngredients.forEach((ingredient) => {
+            if (ingredient.toLowerCase().includes(value)) {
+                this.filteredIngredientsDropdown.push(value);
+            }
+            console.log(this.filteredIngredientsDropdown);
         });
+        this.notifyChange();
     }
 
     notifyChange() {
         console.log('notifyChange');
         this.notify('change', {
             recipes: this.filteredRecipes,
+            ingredients: this.filteredIngredientsDropdown,
         });
     }
 }

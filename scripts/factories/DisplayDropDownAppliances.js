@@ -20,15 +20,15 @@ class DisplayDropDownAppliances {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
-        this.elLabelAppareil = createElementToCard('label', null, null);
-
-        this.elLabelAppareil.append(this.elApparel, this.elIconA);
-
-        this.elDivApparels = createElementToCard('div', null, [
+        this.elLabelAppareils = createElementToCard('label', null, [
             { attribut: 'id', content: 'label-apparels' },
         ]);
 
-        this.elDivApparels.append(this.elLabelAppareil, this.elApparel);
+        this.elLabelAppareils.append(this.elApparel, this.elIconA);
+
+        this.elDivApparels = createElementToCard('div', null, [
+            { attribut: 'id', content: 'div-apparels' },
+        ]);
 
         this.elUlApparels = createElementToCard('ul', null, [
             { attribut: 'id', content: 'apparels-dropdown' },
@@ -39,13 +39,14 @@ class DisplayDropDownAppliances {
                 { attribut: 'class', content: 'dropdown-apparels' },
                 { attribut: 'title', content: `${apparel}` },
                 { attribut: 'data-title', content: `${apparel}` },
+                { attribut: 'id', content: `${apparel}` },
             ]);
             this.elUlApparels.appendChild(this.elLiApparels);
         });
 
-        this.elDivApparels.append(this.elLabelAppareil, this.elUlApparels);
+        this.elDivApparels.append(this.elLabelAppareils, this.elUlApparels);
 
-        GetElementId.selectsInput().appendChild(this.elDivApparels);
+        GetElementId.dropdownsInput().appendChild(this.elDivApparels);
     }
 }
 

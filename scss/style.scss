@@ -67,11 +67,11 @@ body {
             padding-top: 25px;
             font-size: 18px;
             display: flex;
-            #label-ingredients, #label-apparels, #label-ustensils,
+            #div-ingredients, #div-apparels, #div-ustensils,
             #ingredients-dropdown, #apparels-dropdown, #ustensils-dropdown {
                 z-index: 9999;
             }
-            #label-ingredients input, #label-apparels input, #label-ustensils input {
+            #div-ingredients input, #div-apparels input, #div-ustensils input {
                 border: none;
                 border-radius: 5px;
                 height: 70px;
@@ -86,32 +86,32 @@ body {
                 }
             }
 
-            #label-ingredients, #label-ingredients input {
+            #div-ingredients, #div-ingredients input {
                 background-color: $primary-color;
                 border-radius: 5px;
 
             }
 
-            #label-apparels, #label-apparels input {
+            #div-apparels, #div-apparels input {
                 background-color: $secondary-color;
                 border-radius: 5px;
 
             }
 
-            #label-ustensils, #label-ustensils input {
+            #div-ustensils, #div-ustensils input {
                 background-color: $tertiary-color;
                 border-radius: 5px;
 
             }
 
-            #label-ingredients svg, #label-apparels svg, #label-ustensils svg {
+            #div-ingredients svg, #div-apparels svg, #div-ustensils svg {
                 position: absolute;
                 color: white;
                 top: 20px;
                 right: 20px;
             }
 
-            #label-ingredients, #label-apparels, #label-ustensils {
+            #div-ingredients, #div-apparels, #div-ustensils {
                 position: relative;
             }
 

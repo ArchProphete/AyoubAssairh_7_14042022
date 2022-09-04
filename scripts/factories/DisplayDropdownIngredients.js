@@ -20,12 +20,14 @@ class DisplayDropdownIngredients {
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
-        this.elLabelIngredients = createElementToCard('label', null);
+        this.elLabelIngredients = createElementToCard('label', null, [
+            { attribut: 'id', content: 'label-ingredients' },
+        ]);
 
         this.elLabelIngredients.append(this.elIngredients, this.elIconI);
 
         this.elDivIngredients = createElementToCard('div', null, [
-            { attribut: 'id', content: 'label-ingredients' },
+            { attribut: 'id', content: 'div-ingredients' },
         ]);
 
         this.elUlIngredients = createElementToCard('ul', null, [
@@ -47,7 +49,7 @@ class DisplayDropdownIngredients {
             this.elUlIngredients
         );
 
-        GetElementId.selectsInput().appendChild(this.elDivIngredients);
+        GetElementId.dropdownsInput().appendChild(this.elDivIngredients);
     }
 }
 
