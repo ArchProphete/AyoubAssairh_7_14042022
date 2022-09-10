@@ -1,4 +1,4 @@
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 import Observable from '../utils/Observable.js';
 import {
     DisplayDropDownAppliances,
@@ -18,33 +18,28 @@ import {
 class View extends Observable {
     constructor() {
         super();
-        this.allIngredients = [];
-        this.allUstensils = [];
-        this.allApparels = [];
 
         this.tag = new DisplayTags();
-        new DisplaySearchFilter().createSearchFilter();
         this.tagsIngredients = [];
+
+        new DisplaySearchFilter().createSearchFilter();
     }
 
-    render({ recipes, ingredients }) {
-        console.log(ingredients);
+    render({ recipes }) {
         this.allIngredients = [];
         this.allUstensils = [];
         this.allApparels = [];
 
-        GetElementId.labelRecipes().innerHTML = '';
-        GetElementId.header().innerHTML = '';
-        GetElementId.dropdownsInput().innerHTML = '';
+        GetElementById.header().innerHTML = '';
+        GetElementById.labelRecipes().innerHTML = '';
 
         new DisplayHeader().createHeader();
 
         // Loop to fetch each data
         recipes.forEach((recipe) => {
-            const displayRecipes = new DisplayRecipes(recipe);
+            new DisplayRecipes(recipe).createRecipe();
             // Destructuring recipe
             const { appliance, ingredients, ustensils } = recipe;
-            displayRecipes.createRecipe();
             // Push data in each arrays
             ingredients.forEach((ingredient) => {
                 this.allIngredients.push(ingredient.ingredient);
@@ -53,58 +48,48 @@ class View extends Observable {
             this.allUstensils.push(...ustensils);
         });
 
-        // Delete duplicate data for clean arrays and stock it same arrays
-        this.allIngredients = deleteDuplicateValue(this.allIngredients);
-        this.allUstensils = deleteDuplicateValue(this.allUstensils);
-        this.allApparels = deleteDuplicateValue(this.allApparels);
-
-        // Transfer data lowerCased for each Dropdown factories
+        // Transfer data for each Dropdown factories
         new DisplayDropdownIngredients(
-            this.allIngredients
+            deleteDuplicateValue(this.allIngredients)
         ).createSelectIngredients();
 
         new DisplayDropDownAppliances(
-            this.allApparels
+            deleteDuplicateValue(this.allUstensils)
         ).createSelectAppliances();
 
-        new DisplayDropdownUstensils(this.allUstensils).createSelectUstensils();
+        new DisplayDropdownUstensils(
+            deleteDuplicateValue(this.allApparels)
+        ).createSelectUstensils();
 
         this.eventListener();
     }
 
     eventListener() {
         // Transmets les valeurs à mon observable
-        GetElementId.searchBar().addEventListener('input', (e) => {
+        GetElementById.searchBar().addEventListener('input', (e) => {
             // recupérer valeur input search bar
             this.notify('searchBar', {
                 value: e.target.value,
             });
         });
 
-        GetElementId.ingredientsInput().addEventListener('input', (e) => {
-            this.notify('ingredientsBar', {
-                value: e.target.value,
-                allIngredients: this.allIngredients,
-            });
-        });
-
-        GetElementId.ingredientsInput().addEventListener('click', () => {
+        GetElementById.ingredientsInput().addEventListener('click', () => {
             displayDropDown('ingredients');
             expandWidthDropDown('ingredients');
         });
 
-        GetElementId.apparelsInput().addEventListener('click', () => {
+        GetElementById.apparelsInput().addEventListener('click', () => {
             displayDropDown('apparels');
             expandWidthDropDown('apparels');
         });
 
-        GetElementId.ustensilsInput().addEventListener('click', () => {
+        GetElementById.ustensilsInput().addEventListener('click', () => {
             displayDropDown('ustensils');
             expandWidthDropDown('ustensils');
         });
 
         // Create tags
-        GetElementId.ingredientsDropdown().addEventListener('click', (e) => {
+        GetElementById.ingredientsDropdown().addEventListener('click', (e) => {
             const color = '#3381F7';
             const ingredient = e.target.dataset.title;
             this.tag.createTags(ingredient, color);
@@ -116,13 +101,13 @@ class View extends Observable {
             );
         });
 
-        GetElementId.apparelsDropdown().addEventListener('click', (e) => {
+        GetElementById.apparelsDropdown().addEventListener('click', (e) => {
             const color = '#68D9A4';
             const apparel = e.target.dataset.title;
             this.tag.createTags(apparel, color);
         });
 
-        GetElementId.ustensilsDropdown().addEventListener('click', (e) => {
+        GetElementById.ustensilsDropdown().addEventListener('click', (e) => {
             const color = '#ED6454';
             const ustensil = e.target.dataset.title;
             this.tag.createTags(ustensil, color);

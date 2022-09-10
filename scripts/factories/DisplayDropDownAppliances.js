@@ -1,12 +1,15 @@
 import { createElementToCard } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplayDropDownAppliances {
     constructor(apparel) {
         this.apparel = apparel;
+        this.apparelsFiltrered = [];
     }
 
     createSelectAppliances() {
+        GetElementById.labelApparels().remove();
+        GetElementById.apparelsDropdown().remove();
         // APPAREILS
         this.elApparel = createElementToCard('input', null, [
             { attribut: 'id', content: 'apparels-input' },
@@ -16,21 +19,17 @@ class DisplayDropDownAppliances {
             { attribut: 'aria-label', content: `Mes appareils` },
         ]);
 
-        this.elIconA = createElementToCard('i', 'null', [
+        this.elIconA = createElementToCard('i', null, [
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
-        this.elLabelAppareils = createElementToCard('label', null, [
+        this.elLabelApparels = createElementToCard('label', null, [
             { attribut: 'id', content: 'label-apparels' },
         ]);
 
-        this.elLabelAppareils.append(this.elApparel, this.elIconA);
+        this.elLabelApparels.append(this.elApparel, this.elIconA);
 
-        this.elDivApparels = createElementToCard('div', null, [
-            { attribut: 'id', content: 'div-apparels' },
-        ]);
-
-        this.elUlApparels = createElementToCard('ul', null, [
+        this.elUlApparelsDropdown = createElementToCard('ul', null, [
             { attribut: 'id', content: 'apparels-dropdown' },
         ]);
 
@@ -41,12 +40,30 @@ class DisplayDropDownAppliances {
                 { attribut: 'data-title', content: `${apparel}` },
                 { attribut: 'id', content: `${apparel}` },
             ]);
-            this.elUlApparels.appendChild(this.elLiApparels);
+            this.elUlApparelsDropdown.appendChild(this.elLiApparels);
         });
 
-        this.elDivApparels.append(this.elLabelAppareils, this.elUlApparels);
+        GetElementById.divApparels().append(
+            this.elLabelApparels,
+            this.elUlApparelsDropdown
+        );
 
-        GetElementId.dropdownsInput().appendChild(this.elDivApparels);
+        GetElementById.selectsInput().appendChild(GetElementById.divApparels());
+
+        this.elApparel.addEventListener('input', (e) => {
+            const value = e.target.value;
+
+            this.apparel.forEach((apparel) => {
+                if (apparel.toLowerCase().includes(value)) {
+                    document.getElementById(apparel).style.display = 'block';
+                    this.apparelsFiltrered.push(apparel);
+                } else {
+                    document.getElementById(apparel).style.display = 'none';
+                    this.apparelsFiltrered.splice(apparel);
+                }
+            });
+            console.log(this.apparelsFiltrered);
+        });
     }
 }
 

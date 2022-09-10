@@ -107,7 +107,6 @@ body main #selects-input #div-ingredients, body main #selects-input #div-apparel
   position: relative;
 }
 body main #selects-input #ingredients-dropdown, body main #selects-input #apparels-dropdown, body main #selects-input #ustensils-dropdown {
-  display: none;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   border-radius: 5px;

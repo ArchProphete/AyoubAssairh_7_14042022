@@ -1,4 +1,4 @@
-class GetElementId {
+class GetElementById {
     constructor() {}
 
     static searchBar() {
@@ -9,7 +9,7 @@ class GetElementId {
         return document.getElementById('header');
     }
 
-    static dropdownsInput() {
+    static selectsInput() {
         return document.getElementById('selects-input');
     }
 
@@ -43,7 +43,7 @@ class GetElementId {
         return document.getElementById('ustensils-dropdown');
     }
 
-    // LABELS
+    // DROPDOWNS
     static divIngredients() {
         return document.getElementById('div-ingredients');
     }
@@ -56,10 +56,22 @@ class GetElementId {
         return document.getElementById('div-ustensils');
     }
 
+    static labelIngredients() {
+        return document.getElementById('label-ingredients');
+    }
+
+    static labelApparels() {
+        return document.getElementById('label-apparels');
+    }
+
+    static labelUstensils() {
+        return document.getElementById('label-ustensils');
+    }
+
     // TAG BUTTON
     static tagButton() {
         return document.getElementById('tag-button');
     }
 }
 
-export { GetElementId };
+export { GetElementById };

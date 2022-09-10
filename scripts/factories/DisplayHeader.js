@@ -1,5 +1,5 @@
 import { createElementToCard } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplayHeader {
     constructor() {}
@@ -18,7 +18,7 @@ class DisplayHeader {
         ]);
 
         this.elA.appendChild(this.elLogo);
-        GetElementId.header().append(this.elA);
+        GetElementById.header().append(this.elA);
     }
 }
 

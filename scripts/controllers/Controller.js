@@ -2,7 +2,6 @@ class Controller {
     constructor(model, view) {
         this.model = model;
         this.view = view;
-
         model.subscribe('change', (data) => {
             console.log('RENDERING');
             view.render(data);
@@ -10,10 +9,6 @@ class Controller {
 
         view.subscribe('searchBar', ({ value }) => {
             model.searchFilter(value);
-        });
-
-        view.subscribe('ingredientsBar', ({ value, allIngredients }) => {
-            model.searchIngredients(value, allIngredients);
         });
 
         /*

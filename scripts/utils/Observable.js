@@ -19,6 +19,18 @@ class Observable {
         // console.log(this.observers);
     }
 
+    // Loops over this.observers and calls the update method on each observer.
+    // The state object will call this method everytime it is updated.
+    notify(name, value) {
+        let listeners = this.observers.get(name);
+        if (!listeners) {
+            return;
+        }
+        listeners.forEach((observer) => {
+            observer(value);
+        });
+    }
+
     // Remove an observer from this.observers.
     // TODO Changer comme le addObserver
     removeObserver(name, observer) {
@@ -30,39 +42,6 @@ class Observable {
             this.observers = this.observers.slice(removeIndex, 1);
         }
     }
-
-    // Loops over this.observers and calls the update method on each observer.
-    // The state object will call this method everytime it is updated.
-    notify(name, value) {
-        // console.log(name);
-        // console.log(value);
-
-        let listeners = this.observers.get(name);
-        if (!listeners) {
-            console.log(listeners);
-            return;
-        }
-        listeners.forEach((observer) => {
-            observer(value);
-        });
-    }
-
-    prototype = {
-        subscribe: function (fn) {
-            this.observers.push(fn);
-            console.log(this.observers);
-        },
-        unsubscribe: function (fnToRemove) {
-            this.observers = this.observers.filter((fn) => {
-                if (fn !== fnToRemove) return fn;
-            });
-        },
-        fire: function () {
-            this.observers.forEach((fn) => {
-                fn.call();
-            });
-        },
-    };
 }
 
 export default Observable;

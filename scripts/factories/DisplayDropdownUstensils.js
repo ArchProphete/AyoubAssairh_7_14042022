@@ -1,12 +1,15 @@
 import { createElementToCard } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplayDropdownUstensils {
     constructor(ustensil) {
         this.ustensils = ustensil;
+        this.ustensilsFiltered = [];
     }
 
     createSelectUstensils() {
+        GetElementById.labelUstensils().remove();
+        GetElementById.ustensilsDropdown().remove();
         // USTENSILES
         this.elUstensil = createElementToCard('input', null, [
             { attribut: 'id', content: 'ustensils-input' },
@@ -16,7 +19,7 @@ class DisplayDropdownUstensils {
             { attribut: 'aria-label', content: `Mes ustensiles` },
         ]);
 
-        this.elIconU = createElementToCard('i', 'null', [
+        this.elIconU = createElementToCard('i', null, [
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
@@ -26,11 +29,7 @@ class DisplayDropdownUstensils {
 
         this.elLabelUstensils.append(this.elUstensil, this.elIconU);
 
-        this.elDivUstensils = createElementToCard('div', null, [
-            { attribut: 'id', content: 'div-ustensils' },
-        ]);
-
-        this.elUlUstensils = createElementToCard('ul', null, [
+        this.elUlUstensilsDropdown = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ustensils-dropdown' },
         ]);
 
@@ -41,12 +40,32 @@ class DisplayDropdownUstensils {
                 { attribut: 'data-title', content: `${ustensil}` },
                 { attribut: 'id', content: `${ustensil}` },
             ]);
-            this.elUlUstensils.appendChild(this.elLiUstensil);
+            this.elUlUstensilsDropdown.appendChild(this.elLiUstensil);
         });
 
-        this.elDivUstensils.append(this.elLabelUstensils, this.elUlUstensils);
+        GetElementById.divUstensils().append(
+            this.elLabelUstensils,
+            this.elUlUstensilsDropdown
+        );
 
-        GetElementId.dropdownsInput().appendChild(this.elDivUstensils);
+        GetElementById.selectsInput().appendChild(
+            GetElementById.divUstensils()
+        );
+
+        this.elUstensil.addEventListener('input', (e) => {
+            const value = e.target.value;
+
+            this.ustensilsFiltered.forEach((ustensil) => {
+                if (ustensil.toLowerCase().includes(value)) {
+                    document.getElementById(ustensil).style.display = 'block';
+                    this.ustensilsFiltered.push(ustensil);
+                } else {
+                    document.getElementById(ustensil).style.display = 'none';
+                    this.ustensilsFiltered.splice(ustensil);
+                }
+            });
+            console.log(this.ustensilsFiltered);
+        });
     }
 }
 

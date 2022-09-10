@@ -1,5 +1,5 @@
 import { createElementToCard, deleteDuplicateValue } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplayTags {
     arrayButton = [];
@@ -24,7 +24,7 @@ class DisplayTags {
         this.test.push(this.elButton);
         deleteDuplicateValue(this.test);
 
-        GetElementId.tagButton().append(...this.test);
+        GetElementById.tagButton().append(...this.test);
 
         this.arrayButton.push(this.elButton);
 

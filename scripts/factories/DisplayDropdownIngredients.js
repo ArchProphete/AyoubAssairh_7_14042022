@@ -1,12 +1,15 @@
 import { createElementToCard } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplayDropdownIngredients {
     constructor(ingredient) {
         this.ingredient = ingredient;
+        this.ingredientsFitltered = [];
     }
 
     createSelectIngredients() {
+        GetElementById.labelIngredients().remove();
+        GetElementById.ingredientsDropdown().remove();
         // INGREDIENTS
         this.elIngredients = createElementToCard('input', null, [
             { attribut: 'id', content: 'ingredients-input' },
@@ -16,7 +19,7 @@ class DisplayDropdownIngredients {
             { attribut: 'aria-label', content: `Mes ingrédients` },
         ]);
 
-        this.elIconI = createElementToCard('i', 'null', [
+        this.elIconI = createElementToCard('i', null, [
             { attribut: 'class', content: 'fa-solid fa-chevron-down' },
         ]);
 
@@ -26,11 +29,7 @@ class DisplayDropdownIngredients {
 
         this.elLabelIngredients.append(this.elIngredients, this.elIconI);
 
-        this.elDivIngredients = createElementToCard('div', null, [
-            { attribut: 'id', content: 'div-ingredients' },
-        ]);
-
-        this.elUlIngredients = createElementToCard('ul', null, [
+        this.eluLIngredientsDropdown = createElementToCard('ul', null, [
             { attribut: 'id', content: 'ingredients-dropdown' },
         ]);
 
@@ -41,15 +40,32 @@ class DisplayDropdownIngredients {
                 { attribut: 'data-title', content: `${ingredient}` },
                 { attribut: 'id', content: `${ingredient}` },
             ]);
-            this.elUlIngredients.append(this.elLiIngredients);
+            this.eluLIngredientsDropdown.append(this.elLiIngredients);
         });
 
-        this.elDivIngredients.append(
+        GetElementById.divIngredients().append(
             this.elLabelIngredients,
-            this.elUlIngredients
+            this.eluLIngredientsDropdown
         );
 
-        GetElementId.dropdownsInput().appendChild(this.elDivIngredients);
+        GetElementById.selectsInput().appendChild(
+            GetElementById.divIngredients()
+        );
+
+        this.elIngredients.addEventListener('input', (e) => {
+            const value = e.target.value;
+
+            this.ingredient.forEach((ingredient) => {
+                if (ingredient.toLowerCase().includes(value)) {
+                    document.getElementById(ingredient).style.display = 'block';
+                    this.ingredientsFitltered.push(ingredient);
+                } else {
+                    document.getElementById(ingredient).style.display = 'none';
+                    this.ingredientsFitltered.splice(ingredient);
+                }
+            });
+            console.log(this.ingredientsFitltered);
+        });
     }
 }
 

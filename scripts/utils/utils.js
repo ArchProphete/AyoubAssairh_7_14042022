@@ -1,4 +1,4 @@
-import { GetElementId } from './GetElementById.js';
+import { GetElementById } from './GetElementById.js';
 
 /**
  * Set attribute and his content to an element
@@ -72,19 +72,19 @@ export const deleteOverlayAndResizeSelect = (
 export const displayDropDown = (dropdownToDisplay) => {
     switch (dropdownToDisplay) {
         case 'ingredients':
-            GetElementId.ingredientsDropdown().style.display = 'grid';
-            GetElementId.apparelsDropdown().style.display = 'none';
-            GetElementId.ustensilsDropdown().style.display = 'none';
+            GetElementById.ingredientsDropdown().style.display = 'grid';
+            GetElementById.apparelsDropdown().style.display = 'none';
+            GetElementById.ustensilsDropdown().style.display = 'none';
             break;
         case 'apparels':
-            GetElementId.apparelsDropdown().style.display = 'grid';
-            GetElementId.ingredientsDropdown().style.display = 'none';
-            GetElementId.ustensilsDropdown().style.display = 'none';
+            GetElementById.apparelsDropdown().style.display = 'grid';
+            GetElementById.ingredientsDropdown().style.display = 'none';
+            GetElementById.ustensilsDropdown().style.display = 'none';
             break;
         case 'ustensils':
-            GetElementId.ustensilsDropdown().style.display = 'grid';
-            GetElementId.apparelsDropdown().style.display = 'none';
-            GetElementId.ingredientsDropdown().style.display = 'none';
+            GetElementById.ustensilsDropdown().style.display = 'grid';
+            GetElementById.apparelsDropdown().style.display = 'none';
+            GetElementById.ingredientsDropdown().style.display = 'none';
             break;
         default:
             break;
@@ -94,19 +94,19 @@ export const displayDropDown = (dropdownToDisplay) => {
 export const expandWidthDropDown = (dropDownToExpand) => {
     switch (dropDownToExpand) {
         case 'ingredients':
-            GetElementId.divIngredients().style.width = '475px';
-            GetElementId.divApparels().style.width = '70px';
-            GetElementId.divUstensils().style.width = '70px';
+            GetElementById.divIngredients().style.width = '475px';
+            GetElementById.divApparels().style.width = '70px';
+            GetElementById.divUstensils().style.width = '70px';
             break;
         case 'apparels':
-            GetElementId.divIngredients().style.width = '70px';
-            GetElementId.divApparels().style.width = '475px';
-            GetElementId.divUstensils().style.width = '70px';
+            GetElementById.divIngredients().style.width = '70px';
+            GetElementById.divApparels().style.width = '475px';
+            GetElementById.divUstensils().style.width = '70px';
             break;
         case 'ustensils':
-            GetElementId.divUstensils().style.width = '70px';
-            GetElementId.divApparels().style.width = '70px';
-            GetElementId.divUstensils().style.width = '475px';
+            GetElementById.divUstensils().style.width = '70px';
+            GetElementById.divApparels().style.width = '70px';
+            GetElementById.divUstensils().style.width = '475px';
             break;
         default:
             break;

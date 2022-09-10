@@ -1,5 +1,5 @@
 import { createElementToCard } from '../utils/utils.js';
-import { GetElementId } from '../utils/GetElementById.js';
+import { GetElementById } from '../utils/GetElementById.js';
 
 class DisplaySearchFilter {
     constructor() {}
@@ -20,7 +20,7 @@ class DisplaySearchFilter {
         this.elLabel = createElementToCard('label', null, null);
 
         this.elLabel.append(this.elInput, this.elIcon);
-        GetElementId.searchBar().appendChild(this.elLabel);
+        GetElementById.searchBar().appendChild(this.elLabel);
     }
 }
 
